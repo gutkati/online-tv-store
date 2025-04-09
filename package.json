@@ -1,0 +1,25 @@
+{
+  "name": "online-tv-store",
+  "version": "1.0.0",
+  "description": "* HTML\r * JS\r * CSS\r * LocalStorage",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gutkati/online-tv-store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gutkati/online-tv-store/issues"
+  },
+  "homepage": "https://github.com/gutkati/online-tv-store#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
