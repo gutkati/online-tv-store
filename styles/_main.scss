@@ -1,8 +1,57 @@
+@import "variables";
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    flex: 1;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  flex: 1;
+
+  @media (max-width: 770px) {
+      padding-top: 70px;
+    }
+
+  &__nav {
+    @include flex-start;
+
+    & .nav__list {
+      @include flex-start;
+      gap: 5px;
+
+      & .nav__item {
+        list-style: none;
+        height: 34px;
+
+        & .nav__link {
+          padding: 8px 16px;
+          box-sizing: border-box;
+          border-radius: 80px;
+          border: 1px solid $border-color;
+          color: inherit;
+          transition: border .2s ease, color .2s ease;
+          text-decoration: none;
+          font-size: 14px;
+          line-height: 34px;
+
+          &.nav__link:hover {
+            border-color: $blue-color;
+            color: $blue-color;
+          }
+
+        }
+
+        & .active {
+          background: $bg-active-link;
+          border-color: $bg-active-link;
+          color: $blue-color;
+          pointer-events: none;
+        }
+      }
+    }
+  }
 }

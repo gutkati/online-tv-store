@@ -1,15 +1,15 @@
 @import "normalize";
 
 /*page*/
-@import "page";
+@import "_page.scss";
 
 /*header*/
-@import "header";
+@import "_header.scss";
 
 /*main*/
 
-@import "main";
+@import "_main.scss";
 
 /*footer*/
 
-@import "footer";
+@import "_footer.scss";
