@@ -4,6 +4,7 @@
   "description": "* HTML\r * JS\r * CSS\r * LocalStorage",
   "main": "index.js",
   "scripts": {
+    "sass": "sass --watch styles:styles",
     "build": "tsc -p .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +22,8 @@
   "homepage": "https://github.com/gutkati/online-tv-store#readme",
   "devDependencies": {
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "sass": "^1.86.3"
   }
 }

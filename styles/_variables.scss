@@ -1,0 +1,26 @@
+$background-page: #f7f8fa;
+$bg-color-pink: #e52e6b;
+
+$text-color: #1a1a1a;
+$text-color-white: #fff;
+$border-color: #dcdde0;
+$header-basket-bg-color-hover: #fff;
+$header-basket-br-color-hover: #fff;
+
+$gradient-button: linear-gradient(to bottom, #025A68, #009F8A);
+$gradient-button-hover: linear-gradient(to bottom, #01847F, #03D78D);
+$box-shadow: -8px 8px 6px 3px rgba(0, 0, 0, 0.25);
+
+
+:export {
+  gradientButton: $gradient-button;
+}
+
+//:export {
+//  greenColor: $light-green-color;
+//}
+
+
+:export {
+  hoverColorRest: $gradient-button-hover;
+}
