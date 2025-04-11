@@ -496,7 +496,85 @@ body {
   color: #0072bc;
   pointer-events: none;
 }
-
+.main .cards {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 36px;
+  margin-top: 20px;
+  padding-right: 16px;
+  border-right: 1px solid #e6e8eb;
+}
+.main .cards__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.main .cards__list .card {
+  max-width: 208px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 10px;
+}
+.main .cards__list .card__img {
+  width: 100%;
+  height: 156px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.main .cards__list .card__img img {
+  width: 100%;
+}
+.main .cards__list .card__price {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+.main .cards__list .card__name {
+  text-decoration: none;
+  color: inherit;
+}
+.main .cards__list .card__name span {
+  font-size: 14px;
+  line-height: 20px;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+.main .cards__list .card__name span:hover {
+  color: #e52e6b;
+}
+.main .cards__list .btn-basket {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  background: #e52e6b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  transition: background 0.2s ease;
+}
+.main .cards__list .btn-basket:hover {
+  background: #d62761;
+  cursor: pointer;
+}
+.main .cards__list .btn-basket .btn-basket__img {
+  width: 16px;
+  height: 16px;
+}
+.main .cards__list .btn-basket .btn-basket__text {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
 /*footer*/
 .footer {
   width: 100%;
