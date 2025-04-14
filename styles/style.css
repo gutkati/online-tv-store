@@ -498,27 +498,23 @@ body {
 }
 .main .cards {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 36px;
-  margin-top: 20px;
-  padding-right: 16px;
-  border-right: 1px solid #e6e8eb;
+  margin-top: 30px;
 }
 .main .cards__list {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 16px;
+  flex: 1;
+  gap: 15px;
 }
 .main .cards__list .card {
-  max-width: 208px;
+  max-width: 195px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
-  padding: 16px;
+  padding: 15px;
   background: #fff;
   border-radius: 10px;
 }
@@ -575,6 +571,163 @@ body {
   font-size: 13px;
   font-weight: 700;
 }
+.main .cards__filters {
+  width: 240px;
+  padding-left: 20px;
+  border-left: 1px solid #e6e8eb;
+}
+.main .cards__filters .filter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e6e8eb;
+}
+.main .cards__filters .filter__title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.main .cards__filters .filter .inputs {
+  display: flex;
+  gap: 10px;
+}
+.main .cards__filters .filter .inputs__container {
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+}
+.main .cards__filters .filter .inputs__container .input-text {
+  color: #b4b5b8;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 6px;
+}
+.main .cards__filters .filter .inputs__container .input-number {
+  border: 1px solid #e6e8eb;
+  padding: 7px 12px;
+  background: transparent;
+  border-radius: 2px;
+  margin-bottom: 1px;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease;
+}
+.main .cards__filters .filter .inputs__container .input-number::placeholder {
+  color: #b4b5b8;
+  font-size: 14px;
+  line-height: 20px;
+}
+.main .cards__filters .filter .inputs__container .input-number::-webkit-outer-spin-button, .main .cards__filters .filter .inputs__container .input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.main .cards__filters .filter .inputs__container .input-number:focus {
+  outline: none;
+  box-shadow: 0 2px 0 0 #0072bc;
+}
+.main .cards__filters .filter .inputs_column {
+  display: flex;
+  flex-direction: column;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container:hover {
+  cursor: pointer;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container:hover .checkbox-custom {
+  color: #0072bc;
+  border-color: #0072bc;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container:hover .input-text {
+  color: #0072bc;
+  border-color: #0072bc;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container .checkbox {
+  display: none;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container .checkbox-custom {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: 1px solid #e6e8eb;
+  position: relative;
+  border-radius: 3px;
+  transition: border-color 0.2s ease;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container .checkbox:checked + .checkbox-custom {
+  display: block;
+  background-color: #0072bc;
+  background-image: url("../public/assets/icons/mark.png");
+  background-size: 8px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.main .cards__filters .filter .inputs_column .checkbox__container .input-text {
+  transition: color 0.2s ease;
+}
+.main .cards__filters .filter .inputs .inputs__container .custom-select {
+  position: relative;
+  width: 106px;
+}
+.main .cards__filters .filter .inputs .inputs__container .custom-select::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  background-image: url("../public/assets/icons/open-arrow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.main .cards__filters .filter .inputs .inputs__container .custom-select .input__select {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid #e6e8eb;
+  padding: 6px 16px 8px 8px;
+  background-color: transparent;
+  border-radius: 2px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.main .cards__filters .filter .inputs .inputs__container .custom-select .input__select:focus {
+  outline: none;
+  border-color: #e6e8eb;
+}
+.main .cards__filters .filters-reset {
+  margin-top: 10px;
+  background-color: transparent;
+  border: 1px solid #e52e6b;
+  color: #e52e6b;
+  font-size: 14px;
+  line-height: 20px;
+  width: 224px;
+  height: 40px;
+  padding: 0 24px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+.main .cards__filters .filters-reset:hover {
+  cursor: pointer;
+  background-color: #fbdee7;
+}
+
 /*footer*/
 .footer {
   width: 100%;

@@ -6,6 +6,11 @@
   justify-content: flex-start;
 }
 
+@mixin font-size {
+  font-size: 14px;
+  line-height: 20px;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -59,28 +64,24 @@
   // cards
 
   & .cards {
-
-    @include flex-start;
-    gap: 36px;
-    margin-top: 20px;
-    padding-right: 16px;
-    border-right: 1px solid #e6e8eb;
+    display: flex;
+    margin-top: 30px;
 
     &__list {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start;
+      align-items: flex-start;
       flex-wrap: wrap;
-      gap: 16px;
+      flex: 1;
+      gap: 15px;
 
       & .card {
-        max-width: 208px;
+        max-width: 195px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
-        padding: 16px;
-        //border: 1px solid #e6e8eb;
+        padding: 15px;
         background: #fff;
         border-radius: 10px;
 
@@ -105,8 +106,7 @@
           color: inherit;
 
           & span {
-            font-size: 14px;
-            line-height: 20px;
+            @include font-size;
             color: inherit;
             transition: color .2s ease;
           }
@@ -147,8 +147,203 @@
       }
     }
 
-    &__filters {
+    //cards filters
 
+    &__filters {
+      width: 240px;
+      padding-left: 20px;
+      border-left: 1px solid $border-filter-color;
+
+      & .filter {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $border-filter-color;
+
+        &__title {
+          @include font-size;
+          font-weight: 700;
+          margin-bottom: 14px;
+        }
+
+        & .inputs {
+          display: flex;
+          gap: 10px;
+
+          &__container {
+            min-width: 70px;
+            display: flex;
+            flex-direction: column;
+
+            & .input-text {
+              color: #b4b5b8;
+              font-size: 12px;
+              line-height: 18px;
+              margin-bottom: 6px;
+            }
+
+            & .input-number {
+              border: 1px solid $border-filter-color;
+              padding: 7px 12px;
+              background: transparent;
+              border-radius: 2px;
+              margin-bottom: 1px;
+              box-sizing: border-box;
+              transition: box-shadow .2s ease;
+
+              &::placeholder {
+                color: #b4b5b8;
+                @include font-size;
+              }
+
+              &::-webkit-outer-spin-button,
+              &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+
+              &:focus {
+                outline: none; // чтобы не было синей обводки
+                box-shadow: 0 2px 0 0 $blue-color; // или любой другой стиль
+              }
+            }
+          }
+
+        }
+
+        //checkbox
+        & .inputs_column {
+          display: flex;
+          flex-direction: column;
+
+          & .checkbox__container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &:hover {
+              cursor: pointer;
+
+              .checkbox-custom {
+                color: $blue-color;
+                border-color: $blue-color;
+              }
+
+              .input-text {
+                color: $blue-color;
+                border-color: $blue-color;
+              }
+
+            }
+
+            & .checkbox {
+              display: none;
+            }
+
+            & .checkbox-custom {
+              display: inline-block;
+              width: 16px;
+              height: 16px;
+              background: transparent;
+              border: 1px solid $border-filter-color;
+              position: relative;
+              border-radius: 3px;
+              transition: border-color 0.2s ease;
+            }
+
+            & .checkbox:checked + .checkbox-custom {
+              display: block;
+              background-color: $blue-color;
+              background-image: url("../public/assets/icons/mark.png");
+              background-size: 8px;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+
+            & .input-text {
+              transition: color 0.2s ease;
+            }
+
+          }
+        }
+
+        //filter select
+
+        & .inputs {
+
+          & .inputs__container {
+
+            .custom-select {
+              position: relative;
+              width: 106px;
+
+              &::after {
+                content: "";
+                position: absolute;
+                right: 8px;
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none;
+
+                width: 8px;
+                height: 8px;
+                background-image: url("../public/assets/icons/open-arrow.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+              }
+
+              .input__select {
+                font-weight: 400;
+                @include font-size;
+                border: 1px solid $border-filter-color;
+                padding: 6px 16px 8px 8px;
+                background-color: transparent;
+                border-radius: 2px;
+                appearance: none; // Убирает дефолтную стрелку (в Chrome)
+                -moz-appearance: none; // Firefox
+                -webkit-appearance: none; // Safari
+                cursor: pointer;
+
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                &:focus {
+                  outline: none;
+                  border-color: $border-filter-color;
+                }
+              }
+            }
+
+          }
+        }
+
+      }
+
+      //btn reset
+
+      .filters-reset {
+        margin-top: 10px;
+        background-color: transparent;
+        border: 1px solid $bg-color-pink;
+        color: $bg-color-pink;
+        @include font-size;
+        width: 224px;
+        height: 40px;
+        padding: 0 24px;
+        border-radius: 4px;
+        transition: background-color .2s ease;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $bg-btn-hover-pink;
+        }
+      }
     }
   }
 }
+
