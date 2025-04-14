@@ -1,89 +1,109 @@
 @import "variables";
 
-.header {
-  width: 100%;
-  min-height: 42px;
+.header__container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-  gap: 20px;
 
-  &__logo {
-    height: 100%;
+  .header {
+    width: 100%;
+    min-height: 42px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
+    position: relative;
+    gap: 20px;
 
-  &__title {
-    font-size: 18px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 30px;
 
-    @media (max-width: 770px) {
-      position: absolute;
-      top: 50px;
-      font-size: 14px;
-      line-height: 30px;
+    &__logo {
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
-    & span {
-      text-transform: uppercase;
-      font-size: 28px;
+    &__title {
+      font-size: 18px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 30px;
 
-      @media (max-width: 580px) {
-        font-size: 20px;
+      @media (max-width: 770px) {
+        position: absolute;
+        top: 50px;
+        font-size: 14px;
         line-height: 30px;
       }
+
+      & span {
+        text-transform: uppercase;
+        font-size: 28px;
+
+        @media (max-width: 580px) {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
     }
+
+    &__basket {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 17px 10px 12px;
+      border-radius: 80px;
+      text-decoration: none;
+      border: 1px solid $border-color;
+      background: transparent;
+      color: inherit;
+      transition: background .2s ease;
+    }
+
+    &__basket:hover {
+      background: $header-basket-bg-color-hover;
+      border-color: $header-basket-br-color-hover;
+      box-shadow: 0 2px 4px rgb(23 35 38 / 5%);
+    }
+
+    & .basket {
+      width: 20px;
+      height: 20px;
+    }
+
+    & .basket img {
+      width: 100%;
+    }
+
+    & .basket__count {
+      min-width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      font-size: 9px;
+      line-height: 14px;
+      color: $text-color-white;
+      background-color: $bg-color-pink;
+      position: absolute;
+      top: -7px;
+      left: 9px;
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    &__basket p {
+      font-size: 14px;
+    }
+
   }
 
-  &__basket {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 17px 10px 12px;
-    border-radius: 80px;
-    text-decoration: none;
-    border: 1px solid $border-color;
-    background: transparent;
-    color: inherit;
-    transition: background .2s ease;
-  }
-
-  &__basket:hover {
-    background: $header-basket-bg-color-hover;
-    border-color: $header-basket-br-color-hover;
-    box-shadow: 0 2px 4px rgb(23 35 38 / 5%);
-  }
-
-  & .basket {
-    width: 20px;
+  .header__design {
+    margin: 20px 0 10px;
+    width: 100vw;
     height: 20px;
-  }
+    background-image: linear-gradient(to right, #900886, #F00260);
 
-  & .basket img {
-    width: 100%;
-  }
-
-  & .basket__count {
-    min-width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    font-size: 9px;
-    line-height: 14px;
-    color: $text-color-white;
-    background-color: $bg-color-pink;
-    position: absolute;
-    top: -7px;
-    left: 9px;
-    text-align: center;
-    padding: 0 4px;
-  }
-
-  &__basket p {
-    font-size: 14px;
+    @media (max-width: 770px) {
+      margin-top: 50px;
+    }
   }
 
 }
+

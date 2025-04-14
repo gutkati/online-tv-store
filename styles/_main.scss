@@ -17,10 +17,6 @@
   padding-top: 20px;
   flex: 1;
 
-  @media (max-width: 770px) {
-    padding-top: 70px;
-  }
-
   //menu
   &__nav {
     @include flex-start;
@@ -67,84 +63,205 @@
     display: flex;
     margin-top: 30px;
 
-    &__list {
+    .cards-box {
       display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      flex: 1;
-      gap: 15px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-      & .card {
-        max-width: 195px;
+      &__list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        flex: 1;
+        gap: 15px;
+
+        & .card {
+          max-width: 195px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
+          padding: 15px;
+          background: #fff;
+          border-radius: 10px;
+
+          &__img {
+            width: 100%;
+            height: 156px;
+            @include flex-start;
+          }
+
+          &__img img {
+            width: 100%;
+          }
+
+          &__price {
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 700;
+          }
+
+          &__name {
+            text-decoration: none;
+            color: inherit;
+
+            & span {
+              @include font-size;
+              color: inherit;
+              transition: color .2s ease;
+            }
+
+            & span:hover {
+              color: $bg-color-pink;
+            }
+          }
+        }
+
+        & .btn-basket {
+          width: 100%;
+          height: 40px;
+          border-radius: 4px;
+          background: $bg-color-pink;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          border: none;
+          transition: background .2s ease;
+
+          &:hover {
+            background: $bg-pink-hover;
+            cursor: pointer;
+          }
+
+          & .btn-basket__img {
+            width: 16px;
+            height: 16px;
+          }
+
+          & .btn-basket__text {
+            color: $text-color-white;
+            font-size: 13px;
+            font-weight: 700;
+          }
+        }
+
+
+      }
+
+      //pagination
+
+      & .pagination {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-        padding: 15px;
-        background: #fff;
-        border-radius: 10px;
-
-        &__img {
-          width: 100%;
-          height: 156px;
-          @include flex-start;
-        }
-
-        &__img img {
-          width: 100%;
-        }
-
-        &__price {
-          font-size: 18px;
-          line-height: 26px;
-          font-weight: 700;
-        }
-
-        &__name {
-          text-decoration: none;
-          color: inherit;
-
-          & span {
-            @include font-size;
-            color: inherit;
-            transition: color .2s ease;
-          }
-
-          & span:hover {
-            color: $bg-color-pink;
-          }
-        }
-      }
-
-      & .btn-basket {
-        width: 100%;
-        height: 40px;
-        border-radius: 4px;
-        background: $bg-color-pink;
-        display: flex;
-        justify-content: center;
         align-items: center;
-        gap: 10px;
-        border: none;
-        transition: background .2s ease;
+        justify-content: center;
+        width: 100%;
 
-        &:hover {
-          background: $bg-color-pink-hover;
-          cursor: pointer;
-        }
-
-        & .btn-basket__img {
-          width: 16px;
-          height: 16px;
-        }
-
-        & .btn-basket__text {
-          color: $text-color-white;
-          font-size: 13px;
+        &__next-page {
+          width: 417px;
+          height: 40px;
+          border: 1px solid $blue-color;
+          color: $blue-color;
+          @include font-size;
           font-weight: 700;
+          border-radius: 4px;
+          padding: 0 24px;
+          margin-bottom: 24px;
+          background-color: transparent;
+          transition: background-color .2s ease;
+
+          &:hover {
+            cursor: pointer;
+            background-color: $bg-color-blue-hover;
+          }
+
+          &:active {
+            background-color: $bg-color-blue-active;
+          }
         }
+
+        &__list-btn {
+          display: flex;
+          gap: 5px;
+          justify-content: center;
+          align-items: center;
+
+          .arrow {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid $blue-color;
+            background-color: transparent;
+            background-size: 8px;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: background-color .2s ease;
+
+            &:hover {
+              background-color: $bg-color-blue-hover;
+            }
+
+            &:active {
+              background-color: $bg-color-blue-active;
+            }
+          }
+
+          .btn-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color .2s ease;
+            border: none;
+
+            &:hover {
+              background-color: $bg-color-blue-hover;
+            }
+
+            &:active {
+              background-color: $bg-color-blue-active;
+            }
+          }
+
+          .btn-num_mark {
+            cursor: default;
+            background-color: $blue-color;
+            color: #fff;
+            pointer-events: none;
+          }
+        }
+
+        .left-arrow-up {
+          background-image: url("../public/assets/icons/triangle-blue-left.png");
+
+          &:disabled {
+            cursor: default;
+            border-color: $border-filter-color;
+            background-image: url("../public/assets/icons/triangle-gray-left.png");
+            pointer-events: none;
+
+          }
+        }
+
+        .right-arrow-up {
+          background-image: url("../public/assets/icons/triangle-blue-right.png");
+        }
+
+        &:disabled {
+          cursor: default;
+          border-color: $border-filter-color;
+          background-image: url("../public/assets/icons/triangle-gray-left.png");
+          pointer-events: none;
+
+        }
+
       }
+
     }
 
     //cards filters
@@ -340,8 +457,13 @@
 
         &:hover {
           cursor: pointer;
-          background-color: $bg-btn-hover-pink;
+          background-color: $bg-color-pink-hover;
         }
+
+        &:active {
+          background-color: $bg-color-pink-active;
+        }
+
       }
     }
   }
