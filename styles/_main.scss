@@ -17,17 +17,92 @@
   padding-top: 20px;
   flex: 1;
 
+  @media (max-width: 1280px) {
+    align-items: center;
+  }
+
   //menu
   &__nav {
     @include flex-start;
+    overflow: hidden;
+
+    @media (max-width: 1280px) {
+      width: 90%;
+    }
+
+    @media (max-width: 770px) {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .nav__btn {
+      width: 36px;
+      height: 36px;
+      background-color: $bg-page;
+      border-radius: 50%;
+      border: 1px solid $bg-color-pink;
+      z-index: 3;
+
+      &-left.hidden,
+      &-right.hidden {
+        visibility: hidden;
+      }
+
+      & img {
+        width: 8px;
+        height: 12px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: $bg-color-pink-hover;
+      }
+
+      &:active {
+        background-color: $bg-color-pink-active;
+      }
+
+    }
+
+    .nav__btn-left {
+      position: absolute;
+      left: -30px;
+
+      @media (max-width: 1280px) {
+        left: 15px;
+      }
+
+      @media (max-width: 770px) {
+        top: 180px;
+      }
+    }
+
+    .nav__btn-right {
+      position: absolute;
+      right: -30px;
+
+      @media (max-width: 1280px) {
+        right: 15px;
+      }
+
+      @media (max-width: 770px) {
+        top: 180px;
+      }
+    }
 
     & .nav__list {
       @include flex-start;
       gap: 5px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      flex-grow: 1;
 
       & .nav__item {
         list-style: none;
         height: 34px;
+        flex: 0 0 auto;
 
         & .nav__link {
           padding: 8px 16px;
@@ -54,6 +129,10 @@
           pointer-events: none;
         }
       }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 
@@ -76,6 +155,11 @@
         flex-wrap: wrap;
         flex: 1;
         gap: 15px;
+
+        @media (max-width: 933px) {
+          align-items: center;
+          justify-content: center;
+        }
 
         & .card {
           max-width: 195px;
@@ -136,6 +220,10 @@
             cursor: pointer;
           }
 
+          &:active {
+            background: $bg-pink-active;
+          }
+
           & .btn-basket__img {
             width: 16px;
             height: 16px;
@@ -159,6 +247,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+        margin-top: 30px;
 
         &__next-page {
           width: 417px;
@@ -172,6 +261,14 @@
           margin-bottom: 24px;
           background-color: transparent;
           transition: background-color .2s ease;
+
+          @media (max-width: 768px) {
+            width: 85%;
+          }
+
+          @media (max-width: 670px) {
+            width: 70%;
+          }
 
           &:hover {
             cursor: pointer;
@@ -201,6 +298,11 @@
             cursor: pointer;
             transition: background-color .2s ease;
 
+            @media (max-width: 933px) {
+              width: 30px;
+              height: 30px;
+            }
+
             &:hover {
               background-color: $bg-color-blue-hover;
             }
@@ -218,6 +320,11 @@
             cursor: pointer;
             transition: background-color .2s ease;
             border: none;
+
+            @media (max-width: 933px) {
+              width: 30px;
+              height: 30px;
+            }
 
             &:hover {
               background-color: $bg-color-blue-hover;
@@ -238,18 +345,31 @@
 
         .left-arrow-up {
           background-image: url("../public/assets/icons/triangle-blue-left.png");
+          @media (max-width: 933px) {
+            position: absolute;
+            top: 40px;
+            left: 25%;
 
-          &:disabled {
-            cursor: default;
-            border-color: $border-filter-color;
-            background-image: url("../public/assets/icons/triangle-gray-left.png");
-            pointer-events: none;
+            &:disabled {
+              cursor: default;
+              border-color: $border-filter-color;
+              background-image: url("../public/assets/icons/triangle-gray-left.png");
+              pointer-events: none;
 
+            }
           }
+
+
         }
 
         .right-arrow-up {
           background-image: url("../public/assets/icons/triangle-blue-right.png");
+          @media (max-width: 933px) {
+            position: absolute;
+            top: 40px;
+            right: 25%;
+          }
+
         }
 
         &:disabled {
@@ -270,6 +390,14 @@
       width: 240px;
       padding-left: 20px;
       border-left: 1px solid $border-filter-color;
+
+      @media (max-width: 768px) {
+        max-width: 200px;
+      }
+
+      @media (max-width: 670px) {
+        display: none;
+      }
 
       & .filter {
         width: 100%;
@@ -396,6 +524,10 @@
               position: relative;
               width: 106px;
 
+              @media (max-width: 768px) {
+                width: 85px;
+              }
+
               &::after {
                 content: "";
                 position: absolute;
@@ -454,6 +586,10 @@
         padding: 0 24px;
         border-radius: 4px;
         transition: background-color .2s ease;
+
+        @media (max-width: 778px) {
+          width: 100%;
+        }
 
         &:hover {
           cursor: pointer;

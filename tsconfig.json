@@ -1,3 +1,4 @@
+//npx tsc --watch
 {
   "compilerOptions": {
     "target": "ES6",

@@ -12,6 +12,20 @@ body, button, div, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, selec
 
 body {
   background: $bg-page;
+
+  & .design {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    //margin: 20px 0 10px;
+    width: 100%;
+    height: 20px;
+    background-image: linear-gradient(to right, #900886, #F00260);
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
 }
 
 .page__container {
@@ -28,7 +42,7 @@ body {
     width: 100%;
   }
 
-  @media (max-width: 580px) {
+  @media (max-width: 690px) {
     padding: 20px 20px;
   }
 }
