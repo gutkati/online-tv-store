@@ -985,14 +985,71 @@ body .design {
 }
 
 /*footer*/
+:export {
+  gradientButton: linear-gradient(to bottom, #025A68, #009F8A);
+}
+
+:export {
+  hoverColorRest: linear-gradient(to bottom, #01847F, #03D78D);
+}
+
 .footer {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
   padding: 10px;
-  box-sizing: border-box;
+  border-top: 1px solid #dcdde0;
+}
+.footer .footer__contact {
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+}
+.footer .footer__contact:hover {
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.footer .footer__contact p {
+  font-size: 14px;
+  line-height: 20px;
+}
+@media (max-width: 580px) {
+  .footer .footer__contact p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+.footer .footer__contact p span {
+  color: #a0a1a3;
+}
+.footer .footer__contact_pink:hover {
+  background-color: #fdeef3;
+  color: #e52e6b;
+}
+.footer .footer__contact_pink:active {
+  background-color: #fbdee7;
+}
+.footer .footer__contact_blue:hover {
+  background-color: #d6e9f7;
+  color: #0072bc;
+}
+.footer .footer__contact_blue:active {
+  background-color: #bad8ef;
+}
+.footer .footer__year {
+  font-size: 14px;
+  line-height: 20px;
+  color: #a0a1a3;
+}
+@media (max-width: 580px) {
+  .footer .footer__year {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

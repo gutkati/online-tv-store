@@ -1,9 +1,82 @@
+@import "variables";
+
+@mixin font-size {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin font-size-mobile {
+  font-size: 12px;
+  line-height: 18px;
+}
+
 .footer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    padding: 10px;
-    box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 10px;
+  border-top: 1px solid $border-filter-color;
+
+  .footer__contact {
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      cursor: pointer;
+      transition: background-color .2s ease, color .2s ease;
+    }
+
+    & p {
+      @include font-size;
+
+      @media (max-width: 580px) {
+        @include font-size-mobile;
+      }
+
+      & span {
+        color: $footer-color-text;
+      }
+    }
+
+  }
+
+  .footer__contact_pink {
+
+    &:hover {
+      background-color: $bg-color-pink-hover;
+      color: $bg-color-pink;
+    }
+
+    &:active {
+      background-color: $bg-color-pink-active;
+    }
+  }
+
+  .footer__contact_blue {
+
+    &:hover {
+      background-color: $bg-color-blue-hover;
+      color: $blue-color;
+    }
+
+    &:active {
+      background-color: $bg-color-blue-active;
+    }
+  }
+
+  .footer__year {
+
+      @include font-size;
+      color: $footer-color-text;
+
+      @media (max-width: 580px) {
+        @include font-size-mobile;
+      }
+
+  }
 }
