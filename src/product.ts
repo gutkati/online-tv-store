@@ -2,8 +2,14 @@ let sliderProductList = document.querySelector(".slider__list") as HTMLElement |
 let btnUpSlider = document.querySelector(".slider__btn-up") as HTMLButtonElement | null;
 let btnDownSlider = document.querySelector(".slider__btn-down") as HTMLButtonElement | null;
 
+let sliderListImg = document.querySelectorAll(".slider__img") as NodeListOf<HTMLElement> | null;
+let mainImage = document.querySelector(".main-image img") as HTMLImageElement | null;
+
+console.log("list", sliderListImg)
+
 const scrollStepSlider = 80
 
+// проверить видимость стрелок слайдера
 function updateScrollBtnVisibility() {
     if (!sliderProductList || !btnUpSlider || !btnDownSlider) return;
 
@@ -14,18 +20,37 @@ function updateScrollBtnVisibility() {
     btnDownSlider.classList.toggle("hidden", currentScroll >= maxScroll - 1);
 }
 
+// функция прокрутки слайдера
 function scrollSlider(direction: "top" | "bottom") {
     if (!sliderProductList) return;
 
     const offset = direction === "top" ? -scrollStepSlider : scrollStepSlider;
     sliderProductList.scrollBy({top: offset, "behavior": "smooth"})
 
-
     setTimeout(updateScrollBtnVisibility, 200)
 }
 
+// подставляет картинки из слайдера
+
+sliderListImg?.forEach(itemImg => {
+    itemImg.addEventListener("click", () => {
+
+        sliderListImg?.forEach(img => img.classList.remove('active'));
+
+        itemImg.classList.add('active')
+
+        const imgElement = itemImg.querySelector('img');
+        const imgSrc = imgElement?.getAttribute('src');
+
+        if (mainImage && imgSrc) {
+            mainImage.setAttribute('src', imgSrc)
+        }
+    })
+})
+
+// срабатывает после загрузки картинок
 window.addEventListener("load", () => {
-  updateScrollBtnVisibility();
+    updateScrollBtnVisibility();
 });
 
 sliderProductList?.addEventListener('scroll', updateScrollBtnVisibility);

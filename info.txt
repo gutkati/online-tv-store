@@ -58,3 +58,19 @@ tv-store/
 ├── .gitignore
 ├── README.md
 └── package.json              # если используем сборку для TS
+
+
+
+HTML элемент	TypeScript тип
+<div>	HTMLDivElement
+<span>	HTMLSpanElement
+<input>	HTMLInputElement
+<form>	HTMLFormElement
+<button>	HTMLButtonElement
+<a>	HTMLAnchorElement
+<ul>	HTMLUListElement
+<li>	HTMLLIElement
+<img>	HTMLImageElement
+<select>	HTMLSelectElement
+<textarea>	HTMLTextAreaElement
+

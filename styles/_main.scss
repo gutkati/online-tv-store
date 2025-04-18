@@ -679,7 +679,7 @@
           flex-direction: column;
           gap: 15px;
           height: 100%;
-          //overflow: hidden;
+          overflow: hidden;
           overflow-y: auto;
           scroll-behavior: smooth;
           scrollbar-width: none;
@@ -692,9 +692,10 @@
             align-items: flex-start;
             width: 56px;
             flex: 1;
-            //min-height: 70px;
             padding-top: 10px;
             flex-basis: auto;
+            opacity: 1;
+            cursor: pointer;
 
             & img {
               width: 100%;
@@ -702,10 +703,28 @@
               display: block;
             }
           }
+
+          .active {
+            opacity: .5;
+          }
         }
       }
 
+      //image
+      .main-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 340px;
+        height: 340px;
+        overflow: hidden;
 
+        & img {
+          width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
     }
   }
 }

@@ -1046,6 +1046,7 @@ body .design {
   flex-direction: column;
   gap: 15px;
   height: 100%;
+  overflow: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -1060,11 +1061,29 @@ body .design {
   flex: 1;
   padding-top: 10px;
   flex-basis: auto;
+  opacity: 1;
+  cursor: pointer;
 }
 .main .product__info .slider__list .slider__img img {
   width: 100%;
   height: auto;
   display: block;
+}
+.main .product__info .slider__list .active {
+  opacity: 0.5;
+}
+.main .product__info .main-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  height: 340px;
+  overflow: hidden;
+}
+.main .product__info .main-image img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /*footer*/
