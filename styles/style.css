@@ -327,7 +327,7 @@ body, button, div, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, selec
 }
 
 body {
-  background: #f7f8fa;
+  background: #fff;
 }
 body .design {
   position: absolute;
@@ -499,7 +499,7 @@ body .design {
 .main__nav .nav__btn {
   width: 36px;
   height: 36px;
-  background-color: #f7f8fa;
+  background-color: #fff;
   border-radius: 50%;
   border: 1px solid #e52e6b;
   z-index: 3;
@@ -619,6 +619,7 @@ body .design {
   padding: 15px;
   background: #fff;
   border-radius: 10px;
+  box-shadow: 0 0 3px 0 #dcdde0;
 }
 .main .cards .cards-box__list .card__img {
   width: 100%;
@@ -982,6 +983,88 @@ body .design {
 }
 .main .cards__filters .filters-reset:active {
   background-color: #fbdee7;
+}
+.main .title {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #dcdde0;
+  margin-bottom: 32px;
+}
+.main .title h1 {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.main .product {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.main .product__info {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+}
+.main .product__info .slider {
+  height: 348px;
+  padding: 10px 0;
+  overflow: hidden;
+}
+.main .product__info .slider__btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e6e8eb;
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+  position: absolute;
+  left: 8px;
+  z-index: 3;
+}
+.main .product__info .slider__btn img {
+  width: 12px;
+  height: 8px;
+}
+.main .product__info .slider__btn:hover {
+  cursor: pointer;
+  background-color: #f7f8fa;
+}
+.main .product__info .slider__btn:active {
+  background-color: #ebedf0;
+}
+.main .product__info .slider__btn-up {
+  top: 0;
+}
+.main .product__info .slider__btn-down {
+  bottom: 2px;
+  opacity: 1;
+}
+.main .product__info .slider__btn-up.hidden, .main .product__info .slider__btn-down.hidden {
+  visibility: hidden;
+}
+.main .product__info .slider__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex-grow: 1;
+  align-items: stretch;
+}
+.main .product__info .slider__list .slider__img {
+  display: flex;
+  align-items: flex-start;
+  width: 56px;
+  flex: 1;
+  padding-top: 10px;
+  flex-basis: auto;
+}
+.main .product__info .slider__list .slider__img img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /*footer*/

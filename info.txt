@@ -1,0 +1,60 @@
+tv-store/
+├── backend/                  # PHP-бэкенд
+│   ├── api/                  # API эндпоинты
+│   │   ├── products.php
+│   │   ├── product.php
+│   │   ├── manufacturers.php
+│   │   ├── filters.php
+│   │   ├── cart.php
+│   │   └── order.php
+│   ├── data/                 # Данные товаров и отзывов (JSON или БД)
+│   │   ├── products.json
+│   │   ├── reviews.json
+│   │   └── manufacturers.json
+│   ├── utils/                # Вспомогательные функции
+│   │   ├── fileHelper.php
+│   │   ├── cartCleaner.php   # Очистка корзин старше суток
+│   │   └── response.php
+│   └── config.php            # Конфигурации (пути, время хранения корзин и пр.)
+
+├── frontend/                 # Фронтенд на TypeScript
+│   ├── assets/               # Изображения, иконки, стили
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── images/
+│   ├── components/           # Компоненты интерфейса
+│   │   ├── ProductCard.ts
+│   │   ├── Pagination.ts
+│   │   ├── SidebarFilters.ts
+│   │   ├── ManufacturerMenu.ts
+│   │   ├── CartPreview.ts
+│   │   └── ReviewList.ts
+│   ├── pages/                # Страницы
+│   │   ├── index.ts          # Главная
+│   │   ├── product.ts        # Страница товара
+│   │   ├── cart.ts           # Страница корзины
+│   │   └── order.ts          # Страница заказа
+│   ├── services/             # Работа с API
+│   │   ├── api.ts
+│   │   ├── cart.ts
+│   │   ├── products.ts
+│   │   └── order.ts
+│   ├── storage/              # Работа с localStorage / sessionStorage
+│   │   └── cartStorage.ts
+│   └── main.ts               # Инициализация
+
+├── parser/                   # Python-скрипт парсера
+│   ├── parse_tv_data.py
+│   ├── reviews_parser.py
+│   ├── utils.py
+│   └── requirements.txt
+
+├── public/                   # Публичные файлы (отдаются веб-сервером)
+│   ├── index.html
+│   ├── product.html
+│   ├── cart.html
+│   └── order.html
+
+├── .gitignore
+├── README.md
+└── package.json              # если используем сборку для TS

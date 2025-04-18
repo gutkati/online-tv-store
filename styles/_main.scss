@@ -170,6 +170,7 @@
           padding: 15px;
           background: #fff;
           border-radius: 10px;
+          box-shadow: 0 0 3px 0 $border-color;
 
           &__img {
             width: 100%;
@@ -601,6 +602,110 @@
         }
 
       }
+    }
+  }
+
+  //section product
+
+  .title {
+    padding-bottom: 30px;
+    border-bottom: 1px solid $border-filter-color;
+    margin-bottom: 32px;
+
+    & h1 {
+      font-size: 26px;
+      line-height: 32px;
+      font-weight: 400;
+    }
+  }
+
+  .product {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+    &__info {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-start;
+
+      .slider {
+        height: 348px;
+        padding: 10px 0;
+        overflow: hidden;
+
+        &__btn {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid #e6e8eb;
+          background-color: #fff;
+          transition: background-color .2s ease;
+          position: absolute;
+          left: 8px;
+          z-index: 3;
+
+          & img {
+            width: 12px;
+            height: 8px;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background-color: #f7f8fa;
+          }
+
+          &:active {
+            background-color: #ebedf0;;
+          }
+        }
+
+        &__btn-up {
+          top: 0;
+        }
+
+        &__btn-down {
+          bottom: 2px;
+          opacity: 1;
+        }
+
+        &__btn-up.hidden,
+        &__btn-down.hidden {
+          visibility: hidden;
+        }
+
+        &__list {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          height: 100%;
+          //overflow: hidden;
+          overflow-y: auto;
+          scroll-behavior: smooth;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          flex-grow: 1;
+          align-items: stretch;
+
+          .slider__img {
+            display: flex;
+            align-items: flex-start;
+            width: 56px;
+            flex: 1;
+            //min-height: 70px;
+            padding-top: 10px;
+            flex-basis: auto;
+
+            & img {
+              width: 100%;
+              height: auto;
+              display: block;
+            }
+          }
+        }
+      }
+
+
     }
   }
 }

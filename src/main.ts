@@ -27,7 +27,6 @@ function scrollNav(direction: "left" | "right") {
     setTimeout(updateArrowsVisibility, 200);
 }
 
-
 btnLeft ? btnLeft.addEventListener('click', () => scrollNav('left')) : '';
 btnRight ? btnRight.addEventListener('click', () => scrollNav('right')) : '';
 
