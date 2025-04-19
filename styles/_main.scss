@@ -626,7 +626,7 @@
 
     &__info {
       display: flex;
-      gap: 15px;
+      gap: 20px;
       justify-content: flex-start;
 
       .slider {
@@ -724,6 +724,95 @@
           max-height: 100%;
           object-fit: contain;
         }
+      }
+
+      // info__tech
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 16px;
+
+        &__diagonal {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          &-title {
+            & p {
+              font-size: 13px;
+              line-height: 18px;
+            }
+          }
+
+          &-list {
+            display: flex;
+            justify-content: flex-start;
+            list-style: none;
+            gap: 6px;
+
+            & li {
+              & a {
+                text-decoration: none;
+                padding: 4px 12px;
+                font-size: 13px;
+                line-height: 18px;
+                border: 1px solid $border-color;
+                color: inherit;
+                border-radius: 99px;
+                transition: all .2s ease;
+
+                &:hover {
+                  border-color: $blue-color;
+                  color: $blue-color;
+                }
+              }
+
+              & .active-link {
+                border-color: transparent;
+                background-color: $bg-color-blue-hover;
+                color: $blue-color;
+              }
+            }
+
+          }
+
+        }
+
+        &__tech {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          gap: 12px;
+
+          .info-box {
+
+            &__title {
+              font-size: 14px;
+              line-height: 20px;
+              color: #a0a1a3;
+            }
+
+            &__text {
+              font-size: 15px;
+              line-height: 22px;
+            }
+
+            &__link {
+                font-size: 14px;
+                line-height: 20px;
+                color: $blue-color;
+
+              &:hover {
+                cursor: pointer;
+                color: #0068b2;
+              }
+            }
+          }
+        }
+
+
       }
     }
   }
