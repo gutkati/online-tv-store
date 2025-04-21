@@ -5,9 +5,8 @@ let btnDownSlider = document.querySelector(".slider__btn-down") as HTMLButtonEle
 let sliderListImg = document.querySelectorAll(".slider__img") as NodeListOf<HTMLElement> | null;
 let mainImage = document.querySelector(".main-image img") as HTMLImageElement | null;
 
-const scrollStepSlider: number = 80
-let isMobileView = window.innerWidth <= 480
-
+const scrollStepSlider: number = 80;
+let isMobileView = window.innerWidth <= 480;
 
 function updateViewState() {
     isMobileView = window.innerWidth <= 480
