@@ -26,7 +26,7 @@
 <div class="design"></div>
 <div class="page__container">
 
-    <header class="header__container">
+    <header class="header__container" id="products">
 
         <div class="header">
             <a href="/" class="header__logo">
@@ -48,6 +48,23 @@
 
         <div class="product-title">
             <h1>Телевизор Xiaomi TV A 32 2025 L32M8-A2RU / ELA5603GL</h1>
+        </div>
+
+        <div class="navigation">
+            <ul class="navigation__list">
+                <li class="navigation-item">
+                    <a href="#products" class="nav-active">Основное</a>
+                    <hr>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="#characteristics">Характеристики</a>
+                </li>
+
+                <li class="navigation-item">
+                    <a href="#reviews">Отзывы</a>
+                </li>
+            </ul>
         </div>
 
         <section class="product">
@@ -189,6 +206,23 @@
         <!--        characteristics-->
 
         <section class="attributes" id="characteristics">
+
+            <div class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation-item">
+                        <a href="#products">Основное</a>
+                    </li>
+
+                    <li class="navigation-item">
+                        <a href="#characteristics" class="nav-active">Характеристики</a>
+                        <hr>
+                    </li>
+
+                    <li class="navigation-item">
+                        <a href="#reviews">Отзывы</a>
+                    </li>
+                </ul>
+            </div>
 
             <div class="attributes__column">
 
@@ -368,6 +402,51 @@
                 </div>
 
             </div>
+        </section>
+
+        <!--        Reviews-->
+
+        <section class="reviews" id="reviews">
+            <h2 class="reviews__title">Отзывы на <span>Телевизор Xiaomi TV A 32 2025 L32M8-A2RU / ELA5603GL</span></h2>
+
+            <div class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation-item">
+                        <a href="#products">Основное</a>
+                    </li>
+
+                    <li class="navigation-item">
+                        <a href="#characteristics">Характеристики</a>
+                    </li>
+
+                    <li class="navigation-item">
+                        <a href="#reviews" class="nav-active">Отзывы</a>
+                        <hr>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="reviews__add">
+                <span class="review-quantity">275 отзывов</span>
+                <button class="review-add">Добавить отзыв</button>
+            </div>
+
+            <ul class="reviews__list">
+                <li class="review">
+                    <div class="review__user">
+                        <div class="profile">
+                            <div class="profile__avatar">
+                                <img src="./assets/icons/avatar.png" alt="">
+                            </div>
+                            <span class="profile__name">Виктория</span>
+                        </div>
+                        <div class="review-date">
+                            <span class="date">12 Апр, 2025</span>
+                        </div>
+                    </div>
+                    <div class="review__resume"></div>
+                </li>
+            </ul>
         </section>
     </main>
 

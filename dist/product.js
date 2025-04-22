@@ -4,6 +4,14 @@ let btnUpSlider = document.querySelector(".slider__btn-up");
 let btnDownSlider = document.querySelector(".slider__btn-down");
 let sliderListImg = document.querySelectorAll(".slider__img");
 let mainImage = document.querySelector(".main-image img");
+let arrReviews = [
+    {
+        name: "Kate",
+        date: "14.04.2025",
+        dignity: "",
+        resume: "",
+    }
+];
 const scrollStepSlider = 80;
 let isMobileView = window.innerWidth <= 480;
 function updateViewState() {

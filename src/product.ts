@@ -5,6 +5,15 @@ let btnDownSlider = document.querySelector(".slider__btn-down") as HTMLButtonEle
 let sliderListImg = document.querySelectorAll(".slider__img") as NodeListOf<HTMLElement> | null;
 let mainImage = document.querySelector(".main-image img") as HTMLImageElement | null;
 
+let arrReviews: any[] = [
+    {
+        name: "Kate",
+        date: "14.04.2025",
+        dignity: "",
+        resume: "",
+    }
+]
+
 const scrollStepSlider: number = 80;
 let isMobileView = window.innerWidth <= 480;
 
