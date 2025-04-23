@@ -2,6 +2,9 @@ let navList = document.querySelector(".nav__list") as HTMLUListElement | null;
 let btnLeft = document.querySelector(".nav__btn-left") as HTMLButtonElement | null;
 let btnRight = document.querySelector(".nav__btn-right") as HTMLButtonElement | null;
 let footerYear = document.querySelector(".footer__year") as HTMLElement | null;
+let showFilters = document.querySelector(".show-filters") as HTMLElement | null;
+let cardsFilters = document.querySelector(".cards__filters") as HTMLElement | null;
+let btnCloseFilterMobile = document.querySelector(".filter__close") as HTMLButtonElement | null;
 
 const scrollStep = 300;
 
@@ -49,4 +52,12 @@ function getCurrentYear(footerYear: HTMLElement, baseYear: number = 2025) {
 if (footerYear) {
     getCurrentYear(footerYear);
 }
+
+showFilters?.addEventListener('click', () => {
+    cardsFilters?.classList.add('visible')
+})
+
+btnCloseFilterMobile?.addEventListener("click", () => {
+    cardsFilters?.classList.remove('visible')
+})
 

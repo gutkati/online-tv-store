@@ -152,6 +152,34 @@ html {
       align-items: center;
       justify-content: center;
 
+      .show-filters {
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: $bg-page;
+        border-radius: 50%;
+        border: 1px solid $border-filter-color;
+        position: absolute;
+        top: 20px;
+        right: -5px;
+        z-index: 1;
+        display: none;
+
+        @media (max-width: 670px) {
+          display: flex;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        & img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
       &__list {
         display: flex;
         justify-content: flex-start;
@@ -391,10 +419,12 @@ html {
 
     //cards filters
 
-    &__filters {
+    .cards__filters {
+      display: block;
       width: 240px;
       padding-left: 20px;
       border-left: 1px solid $border-filter-color;
+      position: relative;
 
       @media (max-width: 768px) {
         max-width: 200px;
@@ -402,7 +432,21 @@ html {
 
       @media (max-width: 670px) {
         display: none;
+        width: 200px;
+        padding: 15px;
+        border: none;
+        position: absolute;
+        right: 15px;
+        top: 225px;
+        background-color: $bg-page;
+        z-index: 999;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        &.visible {
+          display: block;
+        }
       }
+
 
       & .filter {
         width: 100%;
@@ -411,6 +455,30 @@ html {
         padding-bottom: 20px;
         margin-bottom: 20px;
         border-bottom: 1px solid $border-filter-color;
+
+        &__close {
+          display: none;
+          width: 20px;
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          transition: all .2s ease;
+
+          @media (max-width: 670px) {
+            display: block;
+          }
+
+          & img {
+            width: 15px;
+            height: 15px;
+            opacity: 1;
+
+            &:hover {
+              cursor: pointer;
+              opacity: .7;
+            }
+          }
+        }
 
         &__title {
           @include font-size;

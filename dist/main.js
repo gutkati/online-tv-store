@@ -3,6 +3,9 @@ let navList = document.querySelector(".nav__list");
 let btnLeft = document.querySelector(".nav__btn-left");
 let btnRight = document.querySelector(".nav__btn-right");
 let footerYear = document.querySelector(".footer__year");
+let showFilters = document.querySelector(".show-filters");
+let cardsFilters = document.querySelector(".cards__filters");
+let btnCloseFilterMobile = document.querySelector(".filter__close");
 const scrollStep = 300;
 // проверка видимости стрелок
 function updateArrowsVisibility() {
@@ -38,3 +41,9 @@ function getCurrentYear(footerYear, baseYear = 2025) {
 if (footerYear) {
     getCurrentYear(footerYear);
 }
+showFilters === null || showFilters === void 0 ? void 0 : showFilters.addEventListener('click', () => {
+    cardsFilters === null || cardsFilters === void 0 ? void 0 : cardsFilters.classList.add('visible');
+});
+btnCloseFilterMobile === null || btnCloseFilterMobile === void 0 ? void 0 : btnCloseFilterMobile.addEventListener("click", () => {
+    cardsFilters === null || cardsFilters === void 0 ? void 0 : cardsFilters.classList.remove('visible');
+});

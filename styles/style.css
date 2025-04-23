@@ -601,6 +601,32 @@ html {
   align-items: center;
   justify-content: center;
 }
+.main .cards .cards-box .show-filters {
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #dcdde0;
+  position: absolute;
+  top: 20px;
+  right: -5px;
+  z-index: 1;
+  display: none;
+}
+@media (max-width: 670px) {
+  .main .cards .cards-box .show-filters {
+    display: flex;
+  }
+}
+.main .cards .cards-box .show-filters:hover {
+  cursor: pointer;
+}
+.main .cards .cards-box .show-filters img {
+  width: 20px;
+  height: 20px;
+}
 .main .cards .cards-box__list {
   display: flex;
   justify-content: flex-start;
@@ -810,22 +836,36 @@ html {
   background-image: url("../public/assets/icons/triangle-gray-left.png");
   pointer-events: none;
 }
-.main .cards__filters {
+.main .cards .cards__filters {
+  display: block;
   width: 240px;
   padding-left: 20px;
   border-left: 1px solid #dcdde0;
+  position: relative;
 }
 @media (max-width: 768px) {
-  .main .cards__filters {
+  .main .cards .cards__filters {
     max-width: 200px;
   }
 }
 @media (max-width: 670px) {
-  .main .cards__filters {
+  .main .cards .cards__filters {
     display: none;
+    width: 200px;
+    padding: 15px;
+    border: none;
+    position: absolute;
+    right: 15px;
+    top: 225px;
+    background-color: #fff;
+    z-index: 999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .main .cards .cards__filters.visible {
+    display: block;
   }
 }
-.main .cards__filters .filter {
+.main .cards .cards__filters .filter {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -833,28 +873,50 @@ html {
   margin-bottom: 20px;
   border-bottom: 1px solid #dcdde0;
 }
-.main .cards__filters .filter__title {
+.main .cards .cards__filters .filter__close {
+  display: none;
+  width: 20px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  transition: all 0.2s ease;
+}
+@media (max-width: 670px) {
+  .main .cards .cards__filters .filter__close {
+    display: block;
+  }
+}
+.main .cards .cards__filters .filter__close img {
+  width: 15px;
+  height: 15px;
+  opacity: 1;
+}
+.main .cards .cards__filters .filter__close img:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.main .cards .cards__filters .filter__title {
   font-size: 14px;
   line-height: 20px;
   font-weight: 700;
   margin-bottom: 14px;
 }
-.main .cards__filters .filter .inputs {
+.main .cards .cards__filters .filter .inputs {
   display: flex;
   gap: 10px;
 }
-.main .cards__filters .filter .inputs__container {
+.main .cards .cards__filters .filter .inputs__container {
   min-width: 70px;
   display: flex;
   flex-direction: column;
 }
-.main .cards__filters .filter .inputs__container .input-text {
+.main .cards .cards__filters .filter .inputs__container .input-text {
   color: #b4b5b8;
   font-size: 12px;
   line-height: 18px;
   margin-bottom: 6px;
 }
-.main .cards__filters .filter .inputs__container .input-number {
+.main .cards .cards__filters .filter .inputs__container .input-number {
   border: 1px solid #dcdde0;
   padding: 7px 12px;
   background: transparent;
@@ -863,43 +925,43 @@ html {
   box-sizing: border-box;
   transition: box-shadow 0.2s ease;
 }
-.main .cards__filters .filter .inputs__container .input-number::placeholder {
+.main .cards .cards__filters .filter .inputs__container .input-number::placeholder {
   color: #b4b5b8;
   font-size: 14px;
   line-height: 20px;
 }
-.main .cards__filters .filter .inputs__container .input-number::-webkit-outer-spin-button, .main .cards__filters .filter .inputs__container .input-number::-webkit-inner-spin-button {
+.main .cards .cards__filters .filter .inputs__container .input-number::-webkit-outer-spin-button, .main .cards .cards__filters .filter .inputs__container .input-number::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.main .cards__filters .filter .inputs__container .input-number:focus {
+.main .cards .cards__filters .filter .inputs__container .input-number:focus {
   outline: none;
   box-shadow: 0 2px 0 0 #0072bc;
 }
-.main .cards__filters .filter .inputs_column {
+.main .cards .cards__filters .filter .inputs_column {
   display: flex;
   flex-direction: column;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container:hover {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container:hover {
   cursor: pointer;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container:hover .checkbox-custom {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container:hover .checkbox-custom {
   color: #0072bc;
   border-color: #0072bc;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container:hover .input-text {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container:hover .input-text {
   color: #0072bc;
   border-color: #0072bc;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container .checkbox {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container .checkbox {
   display: none;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container .checkbox-custom {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container .checkbox-custom {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -909,7 +971,7 @@ html {
   border-radius: 3px;
   transition: border-color 0.2s ease;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container .checkbox:checked + .checkbox-custom {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container .checkbox:checked + .checkbox-custom {
   display: block;
   background-color: #0072bc;
   background-image: url("../public/assets/icons/mark.png");
@@ -917,19 +979,19 @@ html {
   background-position: center;
   background-repeat: no-repeat;
 }
-.main .cards__filters .filter .inputs_column .checkbox__container .input-text {
+.main .cards .cards__filters .filter .inputs_column .checkbox__container .input-text {
   transition: color 0.2s ease;
 }
-.main .cards__filters .filter .inputs .inputs__container .custom-select {
+.main .cards .cards__filters .filter .inputs .inputs__container .custom-select {
   position: relative;
   width: 106px;
 }
 @media (max-width: 768px) {
-  .main .cards__filters .filter .inputs .inputs__container .custom-select {
+  .main .cards .cards__filters .filter .inputs .inputs__container .custom-select {
     width: 85px;
   }
 }
-.main .cards__filters .filter .inputs .inputs__container .custom-select::after {
+.main .cards .cards__filters .filter .inputs .inputs__container .custom-select::after {
   content: "";
   position: absolute;
   right: 8px;
@@ -943,7 +1005,7 @@ html {
   background-size: contain;
   background-position: center;
 }
-.main .cards__filters .filter .inputs .inputs__container .custom-select .input__select {
+.main .cards .cards__filters .filter .inputs .inputs__container .custom-select .input__select {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -960,11 +1022,11 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.main .cards__filters .filter .inputs .inputs__container .custom-select .input__select:focus {
+.main .cards .cards__filters .filter .inputs .inputs__container .custom-select .input__select:focus {
   outline: none;
   border-color: #dcdde0;
 }
-.main .cards__filters .filters-reset {
+.main .cards .cards__filters .filters-reset {
   margin-top: 10px;
   background-color: transparent;
   border: 1px solid #e52e6b;
@@ -978,15 +1040,15 @@ html {
   transition: background-color 0.2s ease;
 }
 @media (max-width: 778px) {
-  .main .cards__filters .filters-reset {
+  .main .cards .cards__filters .filters-reset {
     width: 100%;
   }
 }
-.main .cards__filters .filters-reset:hover {
+.main .cards .cards__filters .filters-reset:hover {
   cursor: pointer;
   background-color: #fdeef3;
 }
-.main .cards__filters .filters-reset:active {
+.main .cards .cards__filters .filters-reset:active {
   background-color: #fbdee7;
 }
 .main .product-title {
