@@ -2094,4 +2094,121 @@ html {
   }
 }
 
+/*modal*/
+:export {
+  gradientButton: linear-gradient(to bottom, #025A68, #009F8A);
+}
+
+:export {
+  hoverColorRest: linear-gradient(to bottom, #01847F, #03D78D);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: flex-start;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.modal.hidden-modal {
+  display: flex;
+}
+.modal__delete {
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 120px;
+  padding: 40px 16px 16px;
+}
+@media (max-width: 580px) {
+  .modal__delete {
+    width: 90%;
+  }
+}
+.modal__delete-title {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+@media (max-width: 580px) {
+  .modal__delete-title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+.modal__delete-text {
+  font-size: 14px;
+  line-height: 20px;
+}
+@media (max-width: 580px) {
+  .modal__delete-text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+.modal__delete-btn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.modal__delete-btn .btn-cancellation {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  border: 1px solid #dcdde0;
+  background-color: inherit;
+}
+@media (max-width: 580px) {
+  .modal__delete-btn .btn-cancellation {
+    height: 40px;
+  }
+}
+.modal__delete-btn .btn-cancellation:hover {
+  cursor: pointer;
+  background-color: #f7f8fa;
+}
+.modal__delete-btn .btn-cancellation:active {
+  background-color: #dcdde0;
+}
+.modal__delete-btn .btn-delete {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  background-color: #e52e6b;
+  color: #fff;
+  border: none;
+}
+@media (max-width: 580px) {
+  .modal__delete-btn .btn-delete {
+    height: 40px;
+  }
+}
+.modal__delete-btn .btn-delete:hover {
+  cursor: pointer;
+  background-color: #d62761;
+}
+.modal__delete-btn .btn-delete:active {
+  cursor: pointer;
+  background-color: #cc215a;
+}
+
 /*# sourceMappingURL=style.css.map */
