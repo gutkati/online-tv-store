@@ -77,6 +77,11 @@
       @media (max-width: 580px) {
         @include font-size-mobile;
       }
+  }
 
+  &_order {
+    @media (max-width: 720px) {
+      margin-top: 220px;
+    }
   }
 }

@@ -15,6 +15,84 @@ html {
   line-height: 20px;
 }
 
+@mixin custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 20px;
+
+  &:hover {
+    cursor: pointer;
+
+    .checkbox-custom {
+      color: $blue-color;
+      border-color: $blue-color;
+    }
+
+    .input-text {
+      color: $blue-color;
+      border-color: $blue-color;
+    }
+
+  }
+
+  & .checkbox {
+    display: none;
+  }
+
+  & .checkbox-custom {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    border: 1px solid $border-filter-color;
+    position: relative;
+    border-radius: 3px;
+    transition: border-color 0.2s ease;
+  }
+
+  & .checkbox:checked + .checkbox-custom {
+    display: block;
+    background-color: $blue-color;
+    background-image: url("../public/assets/icons/mark.png");
+    background-size: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  & .input-text {
+    transition: color 0.2s ease;
+  }
+
+}
+
+@mixin btn-pink {
+  width: 100%;
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  color: #fff;
+  background-color: #e52e6b;
+  border-radius: 4px;
+  border: 1px solid #e52e6b;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $bg-pink-hover;
+  }
+
+  &:active {
+    background-color: $bg-pink-active;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -237,25 +315,8 @@ html {
         }
 
         & .btn-basket {
-          width: 100%;
+          @include btn-pink;
           height: 40px;
-          border-radius: 4px;
-          background: $bg-color-pink;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          border: none;
-          transition: background .2s ease;
-
-          &:hover {
-            background: $bg-pink-hover;
-            cursor: pointer;
-          }
-
-          &:active {
-            background: $bg-pink-active;
-          }
 
           & .btn-basket__img {
             width: 16px;
@@ -268,8 +329,6 @@ html {
             font-weight: 700;
           }
         }
-
-
       }
 
       //pagination
@@ -343,6 +402,12 @@ html {
             &:active {
               background-color: $bg-color-blue-active;
             }
+
+            //&:disabled {
+            //  pointer-events: none;
+            //  border-color: $border-filter-color;
+            //
+            //}
           }
 
           .btn-num {
@@ -376,40 +441,42 @@ html {
           }
         }
 
-        .left-arrow-up {
+        & .left-arrow-up {
           background-image: url("../public/assets/icons/triangle-blue-left.png");
+
           @media (max-width: 933px) {
             position: absolute;
             top: 40px;
             left: 25%;
 
-            &:disabled {
-              cursor: default;
-              border-color: $border-filter-color;
-              background-image: url("../public/assets/icons/triangle-gray-left.png");
-              pointer-events: none;
-
-            }
           }
 
+          &:disabled {
+            cursor: default;
+            border-color: $border-filter-color;
+            background-image: url("../public/assets/icons/triangle-gray-left.png");
+            pointer-events: none;
+
+          }
 
         }
 
-        .right-arrow-up {
+        & .right-arrow-up {
           background-image: url("../public/assets/icons/triangle-blue-right.png");
+
           @media (max-width: 933px) {
             position: absolute;
             top: 40px;
             right: 25%;
           }
 
-        }
+          &:disabled {
+            cursor: default;
+            border-color: $border-filter-color;
+            background-image: url("../public/assets/icons/triangle-gray-left.png");
+            pointer-events: none;
 
-        &:disabled {
-          cursor: default;
-          border-color: $border-filter-color;
-          background-image: url("../public/assets/icons/triangle-gray-left.png");
-          pointer-events: none;
+          }
 
         }
 
@@ -537,53 +604,7 @@ html {
           flex-direction: column;
 
           & .checkbox__container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            &:hover {
-              cursor: pointer;
-
-              .checkbox-custom {
-                color: $blue-color;
-                border-color: $blue-color;
-              }
-
-              .input-text {
-                color: $blue-color;
-                border-color: $blue-color;
-              }
-
-            }
-
-            & .checkbox {
-              display: none;
-            }
-
-            & .checkbox-custom {
-              display: inline-block;
-              width: 16px;
-              height: 16px;
-              background: transparent;
-              border: 1px solid $border-filter-color;
-              position: relative;
-              border-radius: 3px;
-              transition: border-color 0.2s ease;
-            }
-
-            & .checkbox:checked + .checkbox-custom {
-              display: block;
-              background-color: $blue-color;
-              background-image: url("../public/assets/icons/mark.png");
-              background-size: 8px;
-              background-position: center;
-              background-repeat: no-repeat;
-            }
-
-            & .input-text {
-              transition: color 0.2s ease;
-            }
-
+            @include custom-checkbox;
           }
         }
 
@@ -1069,31 +1090,13 @@ html {
         }
 
         .btn-price {
-          display: inline-flex;
-          position: relative;
-          justify-content: center;
-          align-items: center;
+          @include btn-pink;
           height: 48px;
-          padding: 0 24px;
-          color: #fff;
-          background-color: $bg-color-pink;
-          border-radius: 4px;
-          border: 1px solid $bg-color-pink;
-          transition: background-color .2s ease;
-          cursor: pointer;
 
           @media (max-width: 480px) {
             height: 40px;
             padding: 0 20px;
-            font-size: 14px;
-          }
-
-          &:hover {
-            background-color: $bg-pink-hover;
-          }
-
-          &:active {
-            background-color: $bg-pink-active;
+            font-size: 13px;
           }
 
         }
@@ -1357,6 +1360,286 @@ html {
             }
           }
         }
+      }
+    }
+  }
+
+  //order
+
+  .order {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 48px;
+    position: relative;
+
+    @media (max-width: 820px) {
+      min-height: 370px;
+      gap: 20px;
+    }
+
+    &__list {
+      flex: 1;
+
+      .list-controls {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+
+        & .checkbox__container {
+          @include custom-checkbox;
+        }
+
+        .delete-selected {
+          border: none;
+          background-color: inherit;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+          color: $bg-pink-hover;
+
+          &:hover {
+            cursor: pointer;
+            color: $bg-pink-active;
+          }
+        }
+      }
+
+      .list-basket {
+        display: flex;
+        margin-bottom: 20px;
+        gap: 10px;
+
+        .order-checkbox {
+          margin-top: 31px;
+
+          & .checkbox__container {
+            @include custom-checkbox;
+          }
+        }
+
+        & .order-info {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+          & .order__card {
+            display: flex;
+            justify-content: space-between;
+            min-height: 88px;
+
+            @media (max-width: 1080px) {
+              flex-direction: column;
+              gap: 20px;
+            }
+
+            @media (max-width: 820px) {
+              min-height: 100px;
+            }
+
+            &-link {
+              display: flex;
+              text-decoration: none;
+              color: $text-color;
+              opacity: 1;
+              transition: all .2s ease;
+
+              &:hover {
+                opacity: .5;
+              }
+
+              & .order__card-img {
+                width: 88px;
+                height: 88px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 12px;
+
+                & img {
+                  width: 100%;
+                }
+              }
+
+              & .order__card-title {
+                max-width: 282px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                @media (max-width: 1080px) {
+                  align-items: flex-end;
+                }
+
+                @media (max-width: 820px) {
+                  max-width: 220px;
+                }
+
+                @media (max-width: 420px) {
+                  max-width: 200px;
+                }
+
+                & p {
+                  font-size: 16px;
+                  line-height: 22px;
+
+                  @media (max-width: 820px) {
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+
+                  @media (max-width: 420px) {
+                    font-size: 12px;
+                    line-height: 20px;
+                  }
+
+                }
+              }
+            }
+
+            &-quantity {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              @media (max-width: 1080px) {
+                justify-content: flex-start;
+              }
+
+              & .btn-counter {
+                width: 32px;
+                height: 32px;
+                border: 1px solid $border-filter-color;
+                border-radius: 50%;
+                font-size: 24px;
+                line-height: 28px;
+                background-color: inherit;
+                transition: all .2s ease;
+
+                &:hover {
+                  cursor: pointer;
+                  background-color: #f7f8fa;
+                }
+
+                &:active {
+                  background-color: $border-filter-color;
+                }
+              }
+
+              & p {
+                width: 43px;
+                text-align: center;
+              }
+            }
+
+            & .order__card-price {
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+
+              @media (max-width: 1080px) {
+                justify-content: flex-start;
+                position: absolute;
+                top: 10px;
+                left: 100px;
+              }
+
+              & span {
+                font-size: 18px;
+                line-height: 26px;
+                font-weight: 700;
+
+                @media (max-width: 820px) {
+                  font-size: 16px;
+                  line-height: 24px;
+                }
+
+                @media (max-width: 420px) {
+                  font-size: 14px;
+                  line-height: 20px;
+                }
+              }
+
+            }
+
+          }
+
+          & .order__delete {
+            justify-content: flex-end;
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            transition: all .2s ease;
+
+            &:hover {
+              cursor: pointer;
+              color: $bg-color-pink;
+            }
+
+            &:active {
+              color: $bg-pink-active;
+            }
+
+            & img {
+              width: 18px;
+              height: 18px;
+            }
+
+            & span {
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+    }
+
+    &__price {
+      width: 300px;
+      height: max-content;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px 0 rgba(6, 10, 13, 0.08), 0 4px 16px 0 rgba(6, 10, 13, 0.06);
+
+      @media (max-width: 720px) {
+        position: absolute;
+        bottom: -171px;
+        left: 0;
+      }
+
+      @media (max-width: 420px) {
+        width: 100%;
+      }
+
+      &-box {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $border-filter-color;
+        padding-bottom: 8px;
+        margin-bottom: 50px;
+
+
+        .sum-order {
+          font-size: 20px;
+          line-height: 28px;
+          font-weight: 700;
+
+          @media (max-width: 820px) {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 700;
+          }
+
+          & span {
+            font-size: 16px;
+            line-height: 22px;
+          }
+        }
+      }
+
+      .btn-order {
+        @include btn-pink;
+        height: 48px;
       }
     }
   }
