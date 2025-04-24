@@ -1574,6 +1574,7 @@ html {
             &:hover {
               cursor: pointer;
               color: $bg-color-pink;
+              opacity: 1;
             }
 
             &:active {
@@ -1583,6 +1584,11 @@ html {
             & img {
               width: 18px;
               height: 18px;
+              opacity: .7;
+
+              &:hover {
+                opacity: 1;
+              }
             }
 
             & span {

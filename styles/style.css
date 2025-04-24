@@ -1942,6 +1942,7 @@ html {
 .main .order__list .list-basket .order-info .order__delete:hover {
   cursor: pointer;
   color: #e52e6b;
+  opacity: 1;
 }
 .main .order__list .list-basket .order-info .order__delete:active {
   color: #cc215a;
@@ -1949,6 +1950,10 @@ html {
 .main .order__list .list-basket .order-info .order__delete img {
   width: 18px;
   height: 18px;
+  opacity: 0.7;
+}
+.main .order__list .list-basket .order-info .order__delete img:hover {
+  opacity: 1;
 }
 .main .order__list .list-basket .order-info .order__delete span {
   font-size: 14px;
