@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Интернет-магазин по продаже телевизоров</title>
+    <meta name="description"
+          content="Доставка и самовывоз по всей Беларуси. Оплата частями. Наличная и безналичная оплата. Широкий выбор товаров">
+    <meta name="keywords" content="Телевизоры, Телевизоры и мониторы, Купить онлайн">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    <meta property="og:title" content="Онлайн-гипермаркет 21vek.by">
+    <meta property="og:image" content="https://www.21vek.by/img/up/logo_21vek.by.png">
+    <meta property="og:description"
+          content="Доставка и самовывоз по всей Беларуси. Оплата частями. Наличная и безналичная оплата. Широкий выбор товаров">
+
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+
+</head>
+<body class="page">
+
+<div class="page__container">
+    <header class="header__container">
+
+        <div class="header">
+            <a href="index.html" class="header__logo">
+                <img src="assets/images/logo.png">
+            </a>
+
+
+            <a href="order.html" class="header__basket">
+                <div class="basket">
+                    <img src="./assets/icons/basket-black.png" alt="Корзина">
+                    <div class="basket__count">10</div>
+                </div>
+                <p>Корзина</p>
+            </a>
+        </div>
+
+    </header>
+
+    <main class="main">
+        <div class="form-container">
+            <div class="form-img">
+                <img src="assets/images/picture.JPG" alt="картинка страницы">
+            </div>
+
+            <div class="form-info">
+                <h3>Оформление заказа</h3>
+                <p>Для оформления заказа заполните необходимые поля</p>
+
+                <form action="" class="form">
+                    <label class="form__inp">
+                        <span>Имя</span>
+                        <input type="text" class="form__inp-name">
+                        <span class="input-invalid invalid-name">Заполните поле</span>
+                    </label>
+
+                    <label class="form__inp">
+                        <span>Телефон</span>
+                        <input type="tel" class="form__inp-tel">
+                        <span class="input-invalid invalid-tel">Заполните поле</span>
+                    </label>
+
+                    <div class="form__order">
+                        <div class="form__order-sum">
+                            <p>529,<span>00 p.</span></p>
+                            <span>Стоимость заказа</span>
+                        </div>
+                        <button class="form__order-btn">Заказать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="modal modal-order">
+    <div class="modal__delete">
+        <h5 class="modal__delete-title">Товар успешно заказан</h5>
+        <p class="modal__delete-text">
+            Но он к вам не приедет, тк сайт учебный.
+        </p>
+
+        <p class="modal__delete-text">
+            Пройдя по ссылке, можно оформить настоящий заказ:
+            <a href="https://www.21vek.by/tv/" target="_blank">21vek.by</a>
+        </p>
+        <div class="modal__delete-btn">
+            <button class="btn-delete btn-close">Закрыть</button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="../dist/main.js"></script>
+<script type="module" src="../dist/form.js"></script>
+</body>
+</html>

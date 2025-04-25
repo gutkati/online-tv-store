@@ -1646,6 +1646,7 @@ html {
       .btn-order {
         @include btn-pink;
         height: 48px;
+        text-decoration: none;
       }
     }
   }
