@@ -707,11 +707,17 @@ html {
 .main .cards .cards-box__list .btn-basket .btn-basket__img {
   width: 16px;
   height: 16px;
+  margin-right: 5px;
 }
 .main .cards .cards-box__list .btn-basket .btn-basket__text {
   color: #fff;
   font-size: 13px;
   font-weight: 700;
+}
+.main .cards .cards-box__list .btn-basket.btn-cart {
+  background-color: inherit;
+  border-color: #d62761;
+  color: #d62761;
 }
 .main .cards .cards-box .pagination {
   display: flex;

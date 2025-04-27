@@ -321,12 +321,19 @@ html {
           & .btn-basket__img {
             width: 16px;
             height: 16px;
+            margin-right: 5px;
           }
 
           & .btn-basket__text {
             color: $text-color-white;
             font-size: 13px;
             font-weight: 700;
+          }
+
+          &.btn-cart {
+            background-color: inherit;
+            border-color: $bg-pink-hover;
+            color: $bg-pink-hover;
           }
         }
       }

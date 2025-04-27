@@ -6,7 +6,29 @@ let showFilters = document.querySelector(".show-filters") as HTMLElement | null;
 let cardsFilters = document.querySelector(".cards__filters") as HTMLElement | null;
 let btnCloseFilterMobile = document.querySelector(".filter__close") as HTMLButtonElement | null;
 
+const buttonsAllProduct: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn-basket');
+
 const scrollStep = 300;
+let keyCart: string = 'cart';
+
+interface Product {
+    url: string,
+    name: string,
+    price: number,
+    image: string
+}
+
+// сохранение товара в локальное хранилище
+function saveProduct(product: Product) {
+    const cart = JSON.parse(localStorage.getItem(keyCart) || '[]') as Product[];
+
+    const alreadyInCart = cart.some(item => item.url === product.url);
+
+    if (!alreadyInCart) {
+        cart.push(product);
+        localStorage.setItem(keyCart, JSON.stringify((cart)))
+    }
+}
 
 // проверка видимости стрелок
 function updateArrowsVisibility() {
@@ -30,11 +52,65 @@ function scrollNav(direction: "left" | "right") {
     setTimeout(updateArrowsVisibility, 200);
 }
 
+function updateNameBtnCard() {
+    const cards = document.querySelectorAll<HTMLDivElement>('.card');
+    const cart = JSON.parse(localStorage.getItem(keyCart) || '[]') as Product[];
+    cards?.forEach(card => {
+        const btn = card.querySelector<HTMLButtonElement>('.btn-basket');
+        const url = card.querySelector('.card__name')?.getAttribute('href') || '';
+
+        const alreadyInCart = cart.some(item => item.url === url);
+
+        if (alreadyInCart && btn) {
+            btn.textContent = 'В корзине';
+            btn.classList.add('btn-cart')
+
+        }
+    })
+}
+
+updateNameBtnCard()
+
+// добавлять товар в хранилище при нажатии
+
+buttonsAllProduct?.forEach(btn => {
+    btn?.addEventListener('click', () => {
+        // находит родительский .card для кнопки.
+        const card = btn.closest('.card');
+
+        if (!card) return;
+
+        const url = card.querySelector('.card__name')?.getAttribute('href') || '';
+        const name = card.querySelector('.card__name span')?.textContent?.trim() || '';
+        const priceText = card.querySelector('.card__price')?.textContent?.trim() || '0';
+        const image = card.querySelector('.card__img img')?.getAttribute('src') || '';
+
+        // Парсим цену: убираем пробелы и "р."
+        const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
+
+        const product: Product = {url, name, price, image};
+        console.log(product)
+
+        saveProduct(product);
+        updateNameBtnCard();
+    })
+})
+
+// переключение слайдера производителей
 btnLeft ? btnLeft.addEventListener('click', () => scrollNav('left')) : '';
 btnRight ? btnRight.addEventListener('click', () => scrollNav('right')) : '';
 
 // следит за ручной прокруткой на мобилке
 navList ? navList.addEventListener('scroll', updateArrowsVisibility) : '';
+
+// фильтры в мобильной версии
+showFilters?.addEventListener('click', () => {
+    cardsFilters?.classList.add('visible')
+})
+
+btnCloseFilterMobile?.addEventListener("click", () => {
+    cardsFilters?.classList.remove('visible')
+})
 
 // функция обновления года в футере
 function getCurrentYear(footerYear: HTMLElement, baseYear: number = 2025) {
@@ -53,11 +129,9 @@ if (footerYear) {
     getCurrentYear(footerYear);
 }
 
-showFilters?.addEventListener('click', () => {
-    cardsFilters?.classList.add('visible')
-})
-
-btnCloseFilterMobile?.addEventListener("click", () => {
-    cardsFilters?.classList.remove('visible')
+window.addEventListener("storage", (event) => {
+    if (event.key === keyCart) {
+        updateNameBtnCard()
+    }
 })
 
