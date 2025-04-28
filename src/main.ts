@@ -9,6 +9,8 @@ let btnCloseFilterMobile = document.querySelector(".filter__close") as HTMLButto
 const buttonsAllProduct: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn-basket');
 const btnProductCart = document.querySelector('.btn-price') as HTMLButtonElement | null;
 
+const basketCount = document.querySelector('.basket__count') as HTMLDivElement | null;
+
 const scrollStep = 300;
 let keyCart: string = 'cart';
 
@@ -53,7 +55,7 @@ function scrollNav(direction: "left" | "right") {
     setTimeout(updateArrowsVisibility, 200);
 }
 
-// менять статус кнопки
+// менять статус кнопки на главной странице
 function updateNameBtnCard() {
     const cards = document.querySelectorAll<HTMLDivElement>('.card');
     const cart = JSON.parse(localStorage.getItem(keyCart) || '[]') as Product[];
@@ -73,6 +75,7 @@ function updateNameBtnCard() {
 
 updateNameBtnCard()
 
+// менять статус кнопки на странице продукта
 function updateNameBtnProduct() {
     const cart = JSON.parse(localStorage.getItem(keyCart) || '[]') as Product[];
     const currentUrl = window.location.href;
@@ -86,6 +89,23 @@ function updateNameBtnProduct() {
 }
 
 updateNameBtnProduct();
+
+// счетчик товаров в корзине
+
+function updateBasketCount() {
+    const cart = JSON.parse(localStorage.getItem(keyCart) || '[]') as Product[];
+    if (!basketCount) return;
+
+    if (cart.length !== 0) {
+        basketCount.classList.add('visible-count');
+        basketCount.textContent = cart.length.toString();
+    } else {
+        basketCount.classList.remove('visible-count');
+        basketCount.textContent = '';
+    }
+}
+
+updateBasketCount();
 
 // добавлять товар в хранилище при нажатии
 
@@ -109,6 +129,7 @@ buttonsAllProduct?.forEach(btn => {
 
         saveProduct(product);
         updateNameBtnCard();
+        updateBasketCount();
     })
 })
 
@@ -125,6 +146,7 @@ btnProductCart?.addEventListener('click', () => {
 
     saveProduct(product);
     updateNameBtnProduct();
+    updateBasketCount();
 
 });
 
@@ -165,6 +187,7 @@ window.addEventListener("storage", (event) => {
     if (event.key === keyCart) {
         updateNameBtnCard();
         updateNameBtnProduct();
+        updateBasketCount();
     }
 })
 

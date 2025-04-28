@@ -8,6 +8,7 @@ let cardsFilters = document.querySelector(".cards__filters");
 let btnCloseFilterMobile = document.querySelector(".filter__close");
 const buttonsAllProduct = document.querySelectorAll('.btn-basket');
 const btnProductCart = document.querySelector('.btn-price');
+const basketCount = document.querySelector('.basket__count');
 const scrollStep = 300;
 let keyCart = 'cart';
 // сохранение товара в локальное хранилище
@@ -36,7 +37,7 @@ function scrollNav(direction) {
     navList.scrollBy({ left: offset, behavior: "smooth" });
     setTimeout(updateArrowsVisibility, 200);
 }
-// менять статус кнопки
+// менять статус кнопки на главной странице
 function updateNameBtnCard() {
     const cards = document.querySelectorAll('.card');
     const cart = JSON.parse(localStorage.getItem(keyCart) || '[]');
@@ -52,6 +53,7 @@ function updateNameBtnCard() {
     });
 }
 updateNameBtnCard();
+// менять статус кнопки на странице продукта
 function updateNameBtnProduct() {
     const cart = JSON.parse(localStorage.getItem(keyCart) || '[]');
     const currentUrl = window.location.href;
@@ -62,6 +64,21 @@ function updateNameBtnProduct() {
     }
 }
 updateNameBtnProduct();
+// счетчик товаров в корзине
+function updateBasketCount() {
+    const cart = JSON.parse(localStorage.getItem(keyCart) || '[]');
+    if (!basketCount)
+        return;
+    if (cart.length !== 0) {
+        basketCount.classList.add('visible-count');
+        basketCount.textContent = cart.length.toString();
+    }
+    else {
+        basketCount.classList.remove('visible-count');
+        basketCount.textContent = '';
+    }
+}
+updateBasketCount();
 // добавлять товар в хранилище при нажатии
 buttonsAllProduct === null || buttonsAllProduct === void 0 ? void 0 : buttonsAllProduct.forEach(btn => {
     btn === null || btn === void 0 ? void 0 : btn.addEventListener('click', () => {
@@ -80,6 +97,7 @@ buttonsAllProduct === null || buttonsAllProduct === void 0 ? void 0 : buttonsAll
         console.log(product);
         saveProduct(product);
         updateNameBtnCard();
+        updateBasketCount();
     });
 });
 btnProductCart === null || btnProductCart === void 0 ? void 0 : btnProductCart.addEventListener('click', () => {
@@ -93,6 +111,7 @@ btnProductCart === null || btnProductCart === void 0 ? void 0 : btnProductCart.a
     console.log('product2', product);
     saveProduct(product);
     updateNameBtnProduct();
+    updateBasketCount();
 });
 // переключение слайдера производителей
 btnLeft ? btnLeft.addEventListener('click', () => scrollNav('left')) : '';
@@ -123,5 +142,6 @@ window.addEventListener("storage", (event) => {
     if (event.key === keyCart) {
         updateNameBtnCard();
         updateNameBtnProduct();
+        updateBasketCount();
     }
 });

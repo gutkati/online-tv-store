@@ -443,6 +443,7 @@ body .design {
   width: 100%;
 }
 .header__container .header .basket__count {
+  display: none;
   min-width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -455,6 +456,9 @@ body .design {
   left: 9px;
   text-align: center;
   padding: 0 4px;
+}
+.header__container .header .visible-count {
+  display: block;
 }
 .header__container .header__basket p {
   font-size: 14px;

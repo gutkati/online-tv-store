@@ -75,6 +75,7 @@
     }
 
     & .basket__count {
+      display: none;
       min-width: 14px;
       height: 14px;
       border-radius: 50%;
@@ -87,6 +88,10 @@
       left: 9px;
       text-align: center;
       padding: 0 4px;
+    }
+
+    & .visible-count {
+      display: block;
     }
 
     &__basket p {
