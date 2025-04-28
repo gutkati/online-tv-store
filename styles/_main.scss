@@ -15,6 +15,12 @@ html {
   line-height: 20px;
 }
 
+@mixin style-btn-cart {
+  background-color: inherit;
+  border-color: $bg-pink-hover;
+  color: $bg-pink-hover;
+}
+
 @mixin custom-checkbox {
   display: flex;
   align-items: center;
@@ -331,9 +337,7 @@ html {
           }
 
           &.btn-cart {
-            background-color: inherit;
-            border-color: $bg-pink-hover;
-            color: $bg-pink-hover;
+            @include style-btn-cart;
           }
         }
       }
@@ -1104,6 +1108,10 @@ html {
             height: 40px;
             padding: 0 20px;
             font-size: 13px;
+          }
+
+          &.btn-cart {
+            @include style-btn-cart;
           }
 
         }

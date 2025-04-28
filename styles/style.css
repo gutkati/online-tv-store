@@ -1441,6 +1441,11 @@ html {
     font-size: 13px;
   }
 }
+.main .product__price-box .btn-price.btn-cart {
+  background-color: inherit;
+  border-color: #d62761;
+  color: #d62761;
+}
 .main .attributes {
   width: 100%;
   display: flex;

@@ -7,6 +7,7 @@ let cardsFilters = document.querySelector(".cards__filters") as HTMLElement | nu
 let btnCloseFilterMobile = document.querySelector(".filter__close") as HTMLButtonElement | null;
 
 const buttonsAllProduct: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn-basket');
+const btnProductCart = document.querySelector('.btn-price') as HTMLButtonElement | null;
 
 const scrollStep = 300;
 let keyCart: string = 'cart';
@@ -52,6 +53,7 @@ function scrollNav(direction: "left" | "right") {
     setTimeout(updateArrowsVisibility, 200);
 }
 
+// менять статус кнопки
 function updateNameBtnCard() {
     const cards = document.querySelectorAll<HTMLDivElement>('.card');
     const cart = JSON.parse(localStorage.getItem(keyCart) || '[]') as Product[];
@@ -70,6 +72,20 @@ function updateNameBtnCard() {
 }
 
 updateNameBtnCard()
+
+function updateNameBtnProduct() {
+    const cart = JSON.parse(localStorage.getItem(keyCart) || '[]') as Product[];
+    const currentUrl = window.location.href;
+
+    const alreadyInProduct = cart.some(item => item.url === currentUrl);
+
+    if (alreadyInProduct && btnProductCart) {
+        btnProductCart.textContent = 'В корзине';
+        btnProductCart.classList.add('btn-cart');
+    }
+}
+
+updateNameBtnProduct();
 
 // добавлять товар в хранилище при нажатии
 
@@ -95,6 +111,22 @@ buttonsAllProduct?.forEach(btn => {
         updateNameBtnCard();
     })
 })
+
+btnProductCart?.addEventListener('click', () => {
+    const url = window.location.href;
+    const name = document.querySelector('.product-title h1')?.textContent?.trim() || '';
+    const priceText = document.querySelector('.product__price-box')?.textContent?.trim() || '0';
+    const image = document.querySelector('.slider__img img')?.getAttribute('src') || '';
+
+    const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
+
+    const product: Product = {url, name, price, image};
+    console.log('product2', product)
+
+    saveProduct(product);
+    updateNameBtnProduct();
+
+});
 
 // переключение слайдера производителей
 btnLeft ? btnLeft.addEventListener('click', () => scrollNav('left')) : '';
@@ -131,7 +163,8 @@ if (footerYear) {
 
 window.addEventListener("storage", (event) => {
     if (event.key === keyCart) {
-        updateNameBtnCard()
+        updateNameBtnCard();
+        updateNameBtnProduct();
     }
 })
 

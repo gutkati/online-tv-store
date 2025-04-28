@@ -7,6 +7,7 @@ let showFilters = document.querySelector(".show-filters");
 let cardsFilters = document.querySelector(".cards__filters");
 let btnCloseFilterMobile = document.querySelector(".filter__close");
 const buttonsAllProduct = document.querySelectorAll('.btn-basket');
+const btnProductCart = document.querySelector('.btn-price');
 const scrollStep = 300;
 let keyCart = 'cart';
 // сохранение товара в локальное хранилище
@@ -35,6 +36,7 @@ function scrollNav(direction) {
     navList.scrollBy({ left: offset, behavior: "smooth" });
     setTimeout(updateArrowsVisibility, 200);
 }
+// менять статус кнопки
 function updateNameBtnCard() {
     const cards = document.querySelectorAll('.card');
     const cart = JSON.parse(localStorage.getItem(keyCart) || '[]');
@@ -50,6 +52,16 @@ function updateNameBtnCard() {
     });
 }
 updateNameBtnCard();
+function updateNameBtnProduct() {
+    const cart = JSON.parse(localStorage.getItem(keyCart) || '[]');
+    const currentUrl = window.location.href;
+    const alreadyInProduct = cart.some(item => item.url === currentUrl);
+    if (alreadyInProduct && btnProductCart) {
+        btnProductCart.textContent = 'В корзине';
+        btnProductCart.classList.add('btn-cart');
+    }
+}
+updateNameBtnProduct();
 // добавлять товар в хранилище при нажатии
 buttonsAllProduct === null || buttonsAllProduct === void 0 ? void 0 : buttonsAllProduct.forEach(btn => {
     btn === null || btn === void 0 ? void 0 : btn.addEventListener('click', () => {
@@ -69,6 +81,18 @@ buttonsAllProduct === null || buttonsAllProduct === void 0 ? void 0 : buttonsAll
         saveProduct(product);
         updateNameBtnCard();
     });
+});
+btnProductCart === null || btnProductCart === void 0 ? void 0 : btnProductCart.addEventListener('click', () => {
+    var _a, _b, _c, _d, _e;
+    const url = window.location.href;
+    const name = ((_b = (_a = document.querySelector('.product-title h1')) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim()) || '';
+    const priceText = ((_d = (_c = document.querySelector('.product__price-box')) === null || _c === void 0 ? void 0 : _c.textContent) === null || _d === void 0 ? void 0 : _d.trim()) || '0';
+    const image = ((_e = document.querySelector('.slider__img img')) === null || _e === void 0 ? void 0 : _e.getAttribute('src')) || '';
+    const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
+    const product = { url, name, price, image };
+    console.log('product2', product);
+    saveProduct(product);
+    updateNameBtnProduct();
 });
 // переключение слайдера производителей
 btnLeft ? btnLeft.addEventListener('click', () => scrollNav('left')) : '';
@@ -98,5 +122,6 @@ if (footerYear) {
 window.addEventListener("storage", (event) => {
     if (event.key === keyCart) {
         updateNameBtnCard();
+        updateNameBtnProduct();
     }
 });
