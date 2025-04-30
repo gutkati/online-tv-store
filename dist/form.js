@@ -4,6 +4,26 @@ let modalOrder = document.querySelector('.modal-order');
 let btnClose = document.querySelector('.btn-close');
 let inputName = document.querySelector('.form__inp-name');
 let inputTel = document.querySelector('.form__inp-tel');
+let orderSum = document.querySelector('.form__order-sum p');
+let keyProductForm = 'cart';
+window.addEventListener("storage", (event) => {
+    if (event.key === keyProductForm) {
+        getTotalSum();
+    }
+});
+function getListProducts() {
+    const products = localStorage.getItem(keyProductForm);
+    return products ? JSON.parse(products) : [];
+}
+function getTotalSum() {
+    let arrProduct = getListProducts();
+    const total = arrProduct.reduce((sum, product) => sum + (product.price * product.quantity), 0);
+    const [rub, kop] = total.toFixed(2).split('.');
+    if (orderSum) {
+        orderSum.innerHTML = `${rub},<span>${kop}</span><span>р.</span>`;
+    }
+}
+getTotalSum();
 function validateName(input) {
     const value = input.value.trim();
     const textError = document.querySelector('.invalid-name');

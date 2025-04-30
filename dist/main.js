@@ -91,9 +91,11 @@ buttonsAllProduct === null || buttonsAllProduct === void 0 ? void 0 : buttonsAll
         const name = ((_c = (_b = card.querySelector('.card__name span')) === null || _b === void 0 ? void 0 : _b.textContent) === null || _c === void 0 ? void 0 : _c.trim()) || '';
         const priceText = ((_e = (_d = card.querySelector('.card__price')) === null || _d === void 0 ? void 0 : _d.textContent) === null || _e === void 0 ? void 0 : _e.trim()) || '0';
         const image = ((_f = card.querySelector('.card__img img')) === null || _f === void 0 ? void 0 : _f.getAttribute('src')) || '';
+        const quantity = 1;
+        const checked = true;
         // Парсим цену: убираем пробелы и "р."
         const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
-        const product = { url, name, price, image };
+        const product = { url, name, price, image, quantity, checked };
         console.log(product);
         saveProduct(product);
         updateNameBtnCard();
@@ -106,8 +108,10 @@ btnProductCart === null || btnProductCart === void 0 ? void 0 : btnProductCart.a
     const name = ((_b = (_a = document.querySelector('.product-title h1')) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim()) || '';
     const priceText = ((_d = (_c = document.querySelector('.product__price-box')) === null || _c === void 0 ? void 0 : _c.textContent) === null || _d === void 0 ? void 0 : _d.trim()) || '0';
     const image = ((_e = document.querySelector('.slider__img img')) === null || _e === void 0 ? void 0 : _e.getAttribute('src')) || '';
+    const quantity = 1;
     const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
-    const product = { url, name, price, image };
+    const checked = true;
+    const product = { url, name, price, image, quantity, checked };
     console.log('product2', product);
     saveProduct(product);
     updateNameBtnProduct();

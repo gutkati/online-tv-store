@@ -18,7 +18,9 @@ interface Product {
     url: string,
     name: string,
     price: number,
-    image: string
+    image: string,
+    quantity: number,
+    checked: boolean
 }
 
 // сохранение товара в локальное хранилище
@@ -120,11 +122,13 @@ buttonsAllProduct?.forEach(btn => {
         const name = card.querySelector('.card__name span')?.textContent?.trim() || '';
         const priceText = card.querySelector('.card__price')?.textContent?.trim() || '0';
         const image = card.querySelector('.card__img img')?.getAttribute('src') || '';
+        const quantity = 1;
+        const checked = true;
 
         // Парсим цену: убираем пробелы и "р."
         const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
 
-        const product: Product = {url, name, price, image};
+        const product: Product = {url, name, price, image, quantity, checked};
         console.log(product)
 
         saveProduct(product);
@@ -138,10 +142,11 @@ btnProductCart?.addEventListener('click', () => {
     const name = document.querySelector('.product-title h1')?.textContent?.trim() || '';
     const priceText = document.querySelector('.product__price-box')?.textContent?.trim() || '0';
     const image = document.querySelector('.slider__img img')?.getAttribute('src') || '';
-
+    const quantity = 1;
     const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
+    const checked = true;
 
-    const product: Product = {url, name, price, image};
+    const product: Product = {url, name, price, image, quantity, checked};
     console.log('product2', product)
 
     saveProduct(product);
