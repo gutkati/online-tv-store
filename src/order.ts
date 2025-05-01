@@ -200,8 +200,8 @@ function updateTotalCheckbox(products: Product[]): void {
     if (!checkboxTotal) return;
 
     const allChecked = products.length > 0 && products.every(product => product.checked)
-
-    checkboxTotal.checked = allChecked;
+    //if (!allChecked) return;
+        checkboxTotal.checked = allChecked;
 }
 
 // удаление всех выбранных товаров
@@ -224,10 +224,12 @@ function deleteOneProduct(url: string): void {
     let arrProduct = getListProduct();
 
     const currentProduct = arrProduct.find(p => p.url === url);
+    if (!currentProduct) return;
+
     arrProduct = arrProduct.filter(product => product !== currentProduct)
     localStorage.setItem(keyProduct, JSON.stringify(arrProduct));
     modalOneOrder?.classList.remove('hidden-modal');
-    let nameDeletedProduct = currentProduct.name;
+    let nameDeletedProduct: string = currentProduct.name;
     showToast(`Товар ${nameDeletedProduct} удален из корзины`);
 
     renderCart();

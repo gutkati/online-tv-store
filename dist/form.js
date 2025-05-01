@@ -17,7 +17,9 @@ function getListProducts() {
 }
 function getTotalSum() {
     let arrProduct = getListProducts();
-    const total = arrProduct.reduce((sum, product) => sum + (product.price * product.quantity), 0);
+    const total = arrProduct
+        .filter(product => product.checked)
+        .reduce((sum, product) => sum + (product.price * product.quantity), 0);
     const [rub, kop] = total.toFixed(2).split('.');
     if (orderSum) {
         orderSum.innerHTML = `${rub},<span>${kop}</span><span>р.</span>`;

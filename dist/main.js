@@ -96,7 +96,6 @@ buttonsAllProduct === null || buttonsAllProduct === void 0 ? void 0 : buttonsAll
         // Парсим цену: убираем пробелы и "р."
         const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
         const product = { url, name, price, image, quantity, checked };
-        console.log(product);
         saveProduct(product);
         updateNameBtnCard();
         updateBasketCount();

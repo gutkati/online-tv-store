@@ -129,7 +129,6 @@ buttonsAllProduct?.forEach(btn => {
         const price = parseFloat(priceText.replace(/\s/g, '').replace(/[^\d.,]/g, '').replace(',', '.'));
 
         const product: Product = {url, name, price, image, quantity, checked};
-        console.log(product)
 
         saveProduct(product);
         updateNameBtnCard();
