@@ -444,7 +444,54 @@
                             <span class="date">12 Апр, 2025</span>
                         </div>
                     </div>
-                    <div class="review__resume"></div>
+                    <div class="review__resume">
+                        <div class="comment comment-good">
+                            <h5 class="comment__title">Достоинства</h5>
+                            <p class="comment__text">все нравится</p>
+                        </div>
+
+                        <div class="comment comment-bad">
+                            <h5 class="comment__title">Недостатки</h5>
+                            <p class="comment__text">звук приглушенный</p>
+                        </div>
+
+                        <div class="comment comment-resume">
+                            <h5 class="comment__title">Резюме</h5>
+                            <p class="comment__text">телевизор очень нравится</p>
+                        </div>
+
+                    </div>
+                </li>
+
+                <li class="review">
+                    <div class="review__user">
+                        <div class="profile">
+                            <div class="profile__avatar">
+                                <img src="./assets/icons/avatar.png" alt="">
+                            </div>
+                            <span class="profile__name">Виктория</span>
+                        </div>
+                        <div class="review-date">
+                            <span class="date">12 Апр, 2025</span>
+                        </div>
+                    </div>
+                    <div class="review__resume">
+                        <div class="comment comment-good">
+                            <h5 class="comment__title">Достоинства</h5>
+                            <p class="comment__text">все нравится</p>
+                        </div>
+
+                        <div class="comment comment-bad">
+                            <h5 class="comment__title">Недостатки</h5>
+                            <p class="comment__text">звук приглушенный</p>
+                        </div>
+
+                        <div class="comment comment-resume">
+                            <h5 class="comment__title">Резюме</h5>
+                            <p class="comment__text">телевизор очень нравится</p>
+                        </div>
+
+                    </div>
                 </li>
             </ul>
         </section>
@@ -463,6 +510,46 @@
             <p><span>Backend</span> Максим Леончик</p>
         </a>
     </footer>
+
+</div>
+
+<div class="modal modal_comment">
+
+    <div class="modal-container">
+
+        <div class="modal-comment-close">
+            <img src="assets/icons/close-black.png" alt="закрыть">
+        </div>
+
+        <div class="form-info">
+            <h3>Оставить отзыв</h3>
+            <p>Поделитесь впечатлениями</p>
+
+            <form action="" class="form">
+                <label class="textarea__inp">
+                    <span>Достоинства</span>
+                    <textarea type="text" class="textarea-block__inp"></textarea>
+                    <span class="input-invalid">Заполните поле</span>
+                </label>
+
+                <label class="textarea__inp">
+                    <span>Недостатки</span>
+                    <textarea type="text" class="textarea-block__inp"></textarea>
+                    <span class="input-invalid">Заполните поле</span>
+                </label>
+
+                <label class="textarea__inp">
+                    <span>Резюме</span>
+                    <textarea type="text" class="textarea-block__inp"></textarea>
+                    <span class="input-invalid invalid-resume">Заполните поле</span>
+                </label>
+
+                <div class="form__comment">
+                    <button class="form__comment-btn">Отправить отзыв</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </div>
 

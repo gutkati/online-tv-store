@@ -1698,6 +1698,31 @@ html {
   line-height: 16px;
   color: #a0a1a3;
 }
+.main .reviews__list .review__resume {
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #dcdde0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.main .reviews__list .review__resume .comment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.main .reviews__list .review__resume .comment__title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.main .reviews__list .review__resume .comment__text {
+  font-size: 14px;
+  line-height: 20px;
+}
 .main .order {
   width: 100%;
   display: flex;
@@ -2256,6 +2281,160 @@ html {
 .modal__delete-btn .btn-delete:active {
   cursor: pointer;
   background-color: #cc215a;
+}
+
+.modal_comment {
+  display: none;
+  z-index: 999;
+}
+.modal_comment .modal-container {
+  width: 480px;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 500px) {
+  .modal_comment .modal-container {
+    width: 95%;
+  }
+}
+.modal_comment .modal-container .modal-comment-close {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.modal_comment .modal-container .modal-comment-close:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.modal_comment .modal-container .modal-comment-close img {
+  width: 100%;
+}
+.modal_comment .modal-container .form-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 424px;
+}
+@media (max-width: 500px) {
+  .modal_comment .modal-container .form-info {
+    width: 100%;
+  }
+}
+.modal_comment .modal-container .form-info h3 {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+}
+.modal_comment .modal-container .form-info p {
+  text-align: center;
+  margin: 12px auto 0;
+  max-width: 320px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.modal_comment .modal-container .form-info .form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.modal_comment .modal-container .form-info .form .textarea__inp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.modal_comment .modal-container .form-info .form .textarea__inp span {
+  font-size: 13px;
+  line-height: 18px;
+  color: #b4b5b8;
+}
+.modal_comment .modal-container .form-info .form .textarea__inp .textarea-block__inp {
+  all: unset;
+  display: block;
+  width: 94%;
+  height: 40px;
+  border: 1px solid #dcdde0;
+  padding: 9px 12px 11px;
+  border-radius: 2px;
+  outline: none;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 20px 0 10px;
+  min-height: 40px;
+  max-height: 176px;
+  box-shadow: none;
+  transition: background-color 0.3s;
+  overscroll-behavior: none;
+  white-space: pre-wrap;
+  overflow: auto;
+  resize: none;
+}
+.modal_comment .modal-container .form-info .form .textarea__inp .input-invalid {
+  font-size: 11px;
+  line-height: 16px;
+  color: #bd0b26;
+  visibility: hidden;
+}
+.modal_comment .modal-container .form-info .form .textarea__inp .invalid-name.invalid {
+  visibility: visible;
+}
+.modal_comment .modal-container .form-info .form .textarea__inp .invalid-tel.invalid {
+  visibility: visible;
+}
+.modal_comment .modal-container .form-info .form__comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: 30px;
+  border-top: 1px solid #dcdde0;
+  padding-top: 30px;
+}
+.modal_comment .modal-container .form-info .form__comment-btn {
+  width: 100%;
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  color: #fff;
+  background-color: #e52e6b;
+  border-radius: 4px;
+  border: 1px solid #e52e6b;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  width: 100%;
+  height: 48px;
+}
+.modal_comment .modal-container .form-info .form__comment-btn:hover {
+  background-color: #d62761;
+}
+.modal_comment .modal-container .form-info .form__comment-btn:active {
+  background-color: #cc215a;
+}
+@media (max-width: 500px) {
+  .modal_comment .modal-container .form-info .form__comment-btn {
+    height: 40px;
+  }
+}
+.modal_comment .hidden-modal {
+  display: flex;
 }
 
 /*form*/

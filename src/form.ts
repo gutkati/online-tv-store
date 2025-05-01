@@ -68,23 +68,23 @@ orderBtn?.addEventListener('click', (e) => {
     const isTelValid = validateTel(inputTel);
 
     if (isNameValid && isTelValid) {
-        modalOrder?.classList.add('hidden-modal')
+        modalOrder?.classList.add('hidden-modal');
     }
 
 })
 
 btnClose?.addEventListener('click', () => {
-    modalOrder?.classList.remove('hidden-modal')
+    modalOrder?.classList.remove('hidden-modal');
 })
 
 inputName?.addEventListener('blur', () => {
     if (inputName) {
-        validateName(inputName)
+        validateName(inputName);
     }
 })
 
 inputTel?.addEventListener('blur', () => {
     if (inputTel) {
-        validateTel(inputTel)
+        validateTel(inputTel);
     }
-})
+});

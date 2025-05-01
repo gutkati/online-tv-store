@@ -5,6 +5,10 @@ let btnDownSlider = document.querySelector(".slider__btn-down") as HTMLButtonEle
 let sliderListImg = document.querySelectorAll(".slider__img") as NodeListOf<HTMLElement> | null;
 let mainImage = document.querySelector(".main-image img") as HTMLImageElement | null;
 
+let btnReviewAdd = document.querySelector('.review-add') as HTMLButtonElement | null;
+let modalComment = document.querySelector('.modal_comment') as HTMLDivElement | null;
+let btnCommentClose = document.querySelector('.modal-comment-close') as HTMLButtonElement | null;
+
 let arrReviews: any[] = [
     {
         name: "Kate",
@@ -108,3 +112,11 @@ sliderProductList?.addEventListener('scroll', updateScrollBtnVisibility);
 
 btnUpSlider?.addEventListener("click", () => scrollSlider("top"));
 btnDownSlider?.addEventListener("click", () => scrollSlider("bottom"));
+
+btnReviewAdd?.addEventListener('click', () => {
+    modalComment?.classList.add('hidden-modal');
+})
+
+btnCommentClose?.addEventListener('click', () => {
+    modalComment?.classList.remove('hidden-modal');
+})

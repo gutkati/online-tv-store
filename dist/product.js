@@ -4,6 +4,9 @@ let btnUpSlider = document.querySelector(".slider__btn-up");
 let btnDownSlider = document.querySelector(".slider__btn-down");
 let sliderListImg = document.querySelectorAll(".slider__img");
 let mainImage = document.querySelector(".main-image img");
+let btnReviewAdd = document.querySelector('.review-add');
+let modalComment = document.querySelector('.modal_comment');
+let btnCommentClose = document.querySelector('.modal-comment-close');
 let arrReviews = [
     {
         name: "Kate",
@@ -87,3 +90,9 @@ window.addEventListener('resize', () => {
 sliderProductList === null || sliderProductList === void 0 ? void 0 : sliderProductList.addEventListener('scroll', updateScrollBtnVisibility);
 btnUpSlider === null || btnUpSlider === void 0 ? void 0 : btnUpSlider.addEventListener("click", () => scrollSlider("top"));
 btnDownSlider === null || btnDownSlider === void 0 ? void 0 : btnDownSlider.addEventListener("click", () => scrollSlider("bottom"));
+btnReviewAdd === null || btnReviewAdd === void 0 ? void 0 : btnReviewAdd.addEventListener('click', () => {
+    modalComment === null || modalComment === void 0 ? void 0 : modalComment.classList.add('hidden-modal');
+});
+btnCommentClose === null || btnCommentClose === void 0 ? void 0 : btnCommentClose.addEventListener('click', () => {
+    modalComment === null || modalComment === void 0 ? void 0 : modalComment.classList.remove('hidden-modal');
+});
